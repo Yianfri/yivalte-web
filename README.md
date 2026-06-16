@@ -1,2 +1,24 @@
 # yivalte-web
-Sitio web para tienda de estampados personalizados DTF
+
+Sitio web para Yivalte, tienda de estampados personalizados DTF.
+
+## Objetivo
+
+Mostrar servicios de estampado personalizado, explicar cómo pedir y redirigir clientes a WhatsApp.
+
+## Stack previsto
+
+- Astro
+- TypeScript
+- Tailwind CSS
+- Cloudflare Pages
+
+## Secciones
+
+- Inicio
+- Qué hacemos
+- Cómo pedir
+- Tamaños y precios
+- Guía de tallas
+- Requisitos del diseño
+- Contacto
