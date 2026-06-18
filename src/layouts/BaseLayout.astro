@@ -1,4 +1,6 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -10,24 +12,6 @@ const {
   title,
   description = "Yivalte - Estampados personalizados DTF",
 } = Astro.props;
-
-const navigationItems = [
-  { label: "Inicio", href: "/" },
-  { label: "Qué hacemos", href: "/que-hacemos/" },
-  { label: "Cómo pedir", href: "/como-pedir/" },
-  { label: "Tamaños y precios", href: "/tamanos-y-precios/" },
-  { label: "Guía de tallas", href: "/guia-de-tallas/" },
-  { label: "Requisitos del diseño", href: "/requisitos-del-diseno/" },
-  { label: "Contacto", href: "/contacto/" },
-];
-
-const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
-
-const isCurrentPage = (href: string) => {
-  const normalizedHref = href.replace(/\/$/, "") || "/";
-
-  return normalizedHref === currentPath;
-};
 ---
 
 <!doctype html>
@@ -39,29 +23,12 @@ const isCurrentPage = (href: string) => {
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-white text-neutral-950 antialiased">
-    <header class="border-b border-neutral-200">
-      <nav class="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-        <a class="text-lg font-semibold" href="/">Yivalte</a>
-        <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          {
-            navigationItems.map((item) => (
-              <li>
-                <a
-                  class:list={[
-                    "text-neutral-700 hover:text-neutral-950",
-                    isCurrentPage(item.href) && "font-semibold text-neutral-950",
-                  ]}
-                  href={item.href}
-                  aria-current={isCurrentPage(item.href) ? "page" : undefined}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </header>
-    <slot />
+    <div class="flex min-h-screen flex-col">
+      <Header />
+      <div class="flex-1">
+        <slot />
+      </div>
+      <Footer />
+    </div>
   </body>
 </html>
