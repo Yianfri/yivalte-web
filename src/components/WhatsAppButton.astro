@@ -1,0 +1,58 @@
+---
+import { contactConfig, whatsappQuoteMessage } from "../data/contact";
+
+interface Props {
+  class?: string;
+  fallbackLabel?: string;
+  label?: string;
+  message?: string;
+  unavailableLabel?: string;
+}
+
+const {
+  class: className = "",
+  fallbackLabel = "Contactar por Instagram",
+  label = "Cotizar por WhatsApp",
+  message = whatsappQuoteMessage,
+  unavailableLabel = "WhatsApp próximamente",
+} = Astro.props;
+
+const whatsappNumber = contactConfig.whatsappNumber.replace(/\D/g, "");
+const whatsappHref = whatsappNumber
+  ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
+  : "";
+const instagramHref = contactConfig.instagramUrl;
+const href = whatsappHref || instagramHref;
+const buttonLabel = whatsappHref
+  ? label
+  : instagramHref
+    ? fallbackLabel
+    : unavailableLabel;
+const baseClasses =
+  "inline-flex min-h-11 w-full items-center justify-center rounded-md px-5 py-3 text-center text-sm font-semibold transition-colors sm:w-auto";
+const activeClasses =
+  "bg-neutral-950 text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2";
+const inactiveClasses =
+  "cursor-not-allowed border border-neutral-200 bg-neutral-100 text-neutral-500";
+---
+
+{
+  href ? (
+    <a
+      class={`${baseClasses} ${activeClasses} ${className}`}
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {buttonLabel}
+    </a>
+  ) : (
+    <span
+      aria-disabled="true"
+      class={`${baseClasses} ${inactiveClasses} ${className}`}
+      role="link"
+    >
+      {buttonLabel}
+    </span>
+  )
+}

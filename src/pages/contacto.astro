@@ -1,13 +1,42 @@
 ---
-import PageHeader from "../components/PageHeader.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Contacto - Yivalte";
 ---
 
 <BaseLayout title={pageTitle}>
-  <PageHeader
-    title="Contacto"
-    intro="Contenido placeholder para los futuros canales de contacto de Yivalte."
-  />
+  <main class="mx-auto max-w-5xl px-6 py-12">
+    <section class="space-y-4">
+      <h1 class="text-3xl font-semibold tracking-normal text-neutral-950">
+        Contacto
+      </h1>
+      <p class="max-w-2xl text-base leading-7 text-neutral-700">
+        Cuéntanos qué quieres estampar y reunimos los detalles para preparar tu
+        cotización DTF.
+      </p>
+    </section>
+
+    <section
+      class="mt-8 rounded-lg border border-neutral-200 bg-neutral-50 p-6"
+      aria-labelledby="contacto-whatsapp"
+    >
+      <div class="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-center">
+        <div class="space-y-2">
+          <h2
+            id="contacto-whatsapp"
+            class="text-lg font-semibold text-neutral-950"
+          >
+            Cotiza tu estampado
+          </h2>
+          <p class="max-w-2xl text-sm leading-6 text-neutral-700">
+            El mensaje se abrirá con los datos base para que solo completes la
+            prenda, talla, color, ubicación y tamaño aproximado.
+          </p>
+        </div>
+
+        <WhatsAppButton />
+      </div>
+    </section>
+  </main>
 </BaseLayout>
