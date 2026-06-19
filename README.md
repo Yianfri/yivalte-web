@@ -13,6 +13,15 @@ Mostrar servicios de estampado personalizado, explicar cómo pedir y redirigir c
 - Tailwind CSS
 - Cloudflare Pages
 
+## Deploy en Cloudflare Pages
+
+Configuración recomendada:
+
+- Framework preset: Astro
+- Build command: `npm run build`
+- Output directory: `dist`
+- Production branch: `main`
+
 ## Secciones
 
 - Inicio
