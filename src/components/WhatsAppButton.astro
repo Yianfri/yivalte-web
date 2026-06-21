@@ -6,6 +6,7 @@ interface Props {
   fallbackLabel?: string;
   label?: string;
   message?: string;
+  tone?: "default" | "inverted";
   unavailableLabel?: string;
 }
 
@@ -14,6 +15,7 @@ const {
   fallbackLabel = "Contactar por Instagram",
   label = "Cotizar por WhatsApp",
   message = whatsappQuoteMessage,
+  tone = "default",
   unavailableLabel = "WhatsApp próximamente",
 } = Astro.props;
 
@@ -30,10 +32,23 @@ const buttonLabel = whatsappHref
     : unavailableLabel;
 const baseClasses =
   "inline-flex min-h-11 w-full items-center justify-center rounded-md px-5 py-3 text-center text-sm font-semibold transition-colors sm:w-auto";
-const activeClasses =
-  "bg-neutral-950 text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2";
-const inactiveClasses =
-  "cursor-not-allowed border border-neutral-200 bg-neutral-100 text-neutral-500";
+const toneClasses = {
+  default: {
+    active:
+      "bg-neutral-950 text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2",
+    inactive:
+      "cursor-not-allowed border border-neutral-200 bg-neutral-100 text-neutral-500",
+  },
+  inverted: {
+    active:
+      "bg-white text-neutral-950 hover:bg-neutral-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950",
+    inactive:
+      "cursor-not-allowed border border-white/15 bg-white/10 text-neutral-400",
+  },
+};
+
+const activeClasses = toneClasses[tone].active;
+const inactiveClasses = toneClasses[tone].inactive;
 ---
 
 {

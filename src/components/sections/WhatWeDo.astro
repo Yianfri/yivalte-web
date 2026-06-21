@@ -1,0 +1,79 @@
+---
+import Card from "../Card.astro";
+import SectionHeading from "../SectionHeading.astro";
+
+const highlights = [
+  {
+    title: "Personalización textil",
+    description:
+      "Aplicaciones DTF para prendas o productos textiles, según el diseño y la superficie a trabajar.",
+  },
+  {
+    title: "Cotización por pedido",
+    description:
+      "Cada solicitud se revisa según tamaño, ubicación, cantidad, prenda y estado del archivo.",
+  },
+  {
+    title: "Acompañamiento simple",
+    description:
+      "Te orientamos con la información que debes enviar para evitar idas y vueltas innecesarias.",
+  },
+];
+
+const ideas = [
+  "Logos para emprendimientos o equipos",
+  "Nombres, frases o detalles personalizados",
+  "Diseños para poleras, polerones o bolsas textiles",
+];
+---
+
+<section
+  id="que-hacemos"
+  class="border-t border-neutral-200 bg-neutral-50"
+  aria-labelledby="que-hacemos-title"
+>
+  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-start">
+      <SectionHeading
+        eyebrow="Qué hacemos"
+        title="Convertimos ideas y archivos en estampados DTF personalizados."
+        titleId="que-hacemos-title"
+        intro="Yivalte es un servicio de estampados DTF para personalizar prendas y productos textiles. No funciona como un catálogo masivo: cada pedido se prepara con la información del cliente."
+      />
+
+      <Card variant="white" class="p-6">
+        <h3 class="text-lg font-semibold text-neutral-950">
+          Ideas que podemos cotizar
+        </h3>
+        <ul class="mt-5 grid gap-3">
+          {
+            ideas.map((idea) => (
+              <li class="flex gap-3 text-sm leading-6 text-neutral-700">
+                <span
+                  class="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400"
+                  aria-hidden="true"
+                />
+                <span>{idea}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-3">
+      {
+        highlights.map((item) => (
+          <Card>
+            <h3 class="text-base font-semibold text-neutral-950">
+              {item.title}
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-neutral-700">
+              {item.description}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,13 +1,27 @@
 ---
+import ContactSection from "../components/sections/ContactSection.astro";
+import DesignRequirements from "../components/sections/DesignRequirements.astro";
+import Hero from "../components/sections/Hero.astro";
+import HowToOrder from "../components/sections/HowToOrder.astro";
+import SizeGuide from "../components/sections/SizeGuide.astro";
+import SizesAndPrices from "../components/sections/SizesAndPrices.astro";
+import WhatWeDo from "../components/sections/WhatWeDo.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageHeader from "../components/PageHeader.astro";
 
 const pageTitle = "Yivalte - Estampados personalizados DTF";
 ---
 
-<BaseLayout title={pageTitle}>
-  <PageHeader
-    title="Inicio"
-    intro="Página inicial del sitio de Yivalte. Este contenido es placeholder para la estructura base."
-  />
+<BaseLayout
+  title={pageTitle}
+  description="Cotiza estampados personalizados DTF para prendas y productos textiles con Yivalte."
+>
+  <main>
+    <Hero />
+    <WhatWeDo />
+    <HowToOrder />
+    <SizesAndPrices />
+    <SizeGuide />
+    <DesignRequirements />
+    <ContactSection />
+  </main>
 </BaseLayout>
