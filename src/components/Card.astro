@@ -1,0 +1,31 @@
+---
+interface Props {
+  as?: "article" | "div" | "li";
+  class?: string;
+  padding?: "default" | "none";
+  variant?: "white" | "muted";
+}
+
+const {
+  as: Tag = "article",
+  class: className = "",
+  padding = "default",
+  variant = "white",
+} = Astro.props;
+
+const variantClasses = {
+  white: "bg-white",
+  muted: "bg-neutral-50",
+};
+
+const paddingClasses = {
+  default: "p-5",
+  none: "",
+};
+---
+
+<Tag
+  class={`rounded-lg border border-neutral-200 ${variantClasses[variant]} ${paddingClasses[padding]} shadow-sm shadow-neutral-950/5 ${className}`}
+>
+  <slot />
+</Tag>

@@ -1,0 +1,55 @@
+---
+import Card from "../Card.astro";
+import SectionHeading from "../SectionHeading.astro";
+
+const guideRows = [
+  {
+    label: "Tipo de prenda",
+    detail: "Polera, polerón, bolsa textil u otro soporte.",
+  },
+  {
+    label: "Talla de la prenda",
+    detail: "Dato pendiente para completar con medidas reales más adelante.",
+  },
+  {
+    label: "Ubicación del estampado",
+    detail: "Pecho, espalda, manga u otra referencia que ayude a dimensionar.",
+  },
+];
+---
+
+<section
+  id="guia-tallas"
+  class="border-t border-neutral-200 bg-white"
+  aria-labelledby="guia-tallas-title"
+>
+  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+    <div class="grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
+      <SectionHeading
+        eyebrow="Guía de tallas"
+        title="Estructura preparada para completar medidas reales."
+        titleId="guia-tallas-title"
+        intro="No publicamos tallas ni medidas reales todavía. Por ahora dejamos claro qué datos serán útiles para definir el tamaño del estampado."
+      />
+
+      <Card as="div" variant="muted" padding="none">
+        <div class="grid border-b border-neutral-200 px-5 py-4 text-xs font-semibold uppercase tracking-wide text-neutral-500 sm:grid-cols-[0.8fr_1fr]">
+          <span>Dato</span>
+          <span class="hidden sm:block">Qué completar</span>
+        </div>
+        <div class="divide-y divide-neutral-200">
+          {
+            guideRows.map((row) => (
+              <div class="grid gap-2 px-5 py-4 sm:grid-cols-[0.8fr_1fr]">
+                <p class="text-sm font-semibold text-neutral-950">
+                  {row.label}
+                </p>
+                <p class="text-sm leading-6 text-neutral-700">{row.detail}</p>
+              </div>
+            ))
+          }
+        </div>
+      </Card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import Card from "../Card.astro";
+import SectionHeading from "../SectionHeading.astro";
+
+const requirements = [
+  "PNG recomendado cuando el diseño ya esté listo.",
+  "Buena resolución para evitar bordes pixelados o pérdida de detalle.",
+  "Fondo transparente ideal si el diseño no debe llevar fondo.",
+  "Evitar capturas borrosas, fotos de pantalla o archivos muy comprimidos.",
+  "Enviar referencia de ubicación sobre la prenda o producto textil.",
+  "Indicar tamaño aproximado o una referencia visual de escala.",
+];
+---
+
+<section
+  id="requisitos-diseno"
+  class="border-t border-neutral-200 bg-neutral-50"
+  aria-labelledby="requisitos-diseno-title"
+>
+  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+    <div class="grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
+      <SectionHeading
+        eyebrow="Requisitos del diseño"
+        title="Archivos más claros, cotizaciones más rápidas."
+        titleId="requisitos-diseno-title"
+        intro="No necesitas dominar lo técnico, pero estos datos ayudan a revisar si el diseño sirve para impresión DTF o si requiere ajustes."
+      />
+
+      <ul class="grid gap-3">
+        {
+          requirements.map((requirement) => (
+            <Card as="li" class="flex gap-3">
+              <span
+                class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-neutral-950 text-[10px] font-semibold text-white"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+              <span class="text-sm leading-6 text-neutral-700">
+                {requirement}
+              </span>
+            </Card>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
