@@ -1,4 +1,5 @@
 ---
+import { CheckCircle2, Image as ImageIcon, Link2 } from "@lucide/astro";
 import Card from "../Card.astro";
 import SectionHeading from "../SectionHeading.astro";
 
@@ -14,32 +15,45 @@ const requirements = [
 
 <section
   id="requisitos-diseno"
-  class="border-t border-neutral-200 bg-neutral-50"
+  class="border-t border-neutral-200 bg-neutral-950 text-white"
   aria-labelledby="requisitos-diseno-title"
 >
-  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
     <div class="grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
-      <SectionHeading
-        eyebrow="Requisitos del diseño"
-        title="Archivos más claros, cotizaciones más rápidas."
-        titleId="requisitos-diseno-title"
-        intro="No necesitas dominar lo técnico, pero estos datos ayudan a revisar si el diseño sirve para impresión DTF o si requiere ajustes."
-      />
+      <div>
+        <SectionHeading
+          eyebrow="Archivos"
+          title="Mientras mejor venga la referencia, más rápida será la respuesta."
+          titleId="requisitos-diseno-title"
+          intro="Para esta primera versión no pedimos subida directa de archivo. En el formulario puedes pegar un link, contar la idea o indicar que enviarás el diseño después."
+          tone="dark"
+        />
+
+        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+          <Card variant="dark" class="p-5">
+            <ImageIcon class="size-5 text-cyan-300" stroke-width={1.8} aria-hidden="true" />
+            <p class="mt-4 text-sm leading-6 text-neutral-300">
+              Fotos, mockups o referencias sirven para entender estilo y escala.
+            </p>
+          </Card>
+          <Card variant="dark" class="p-5">
+            <Link2 class="size-5 text-rose-300" stroke-width={1.8} aria-hidden="true" />
+            <p class="mt-4 text-sm leading-6 text-neutral-300">
+              Un link a Drive, Canva, Instagram o carpeta compartida también ayuda.
+            </p>
+          </Card>
+        </div>
+      </div>
 
       <ul class="grid gap-3">
         {
           requirements.map((requirement) => (
-            <Card as="li" class="flex gap-3">
-              <span
-                class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-neutral-950 text-[10px] font-semibold text-white"
-                aria-hidden="true"
-              >
-                ✓
-              </span>
-              <span class="text-sm leading-6 text-neutral-700">
+            <li class="flex gap-3 rounded-lg border border-white/10 bg-white/[0.06] p-4">
+              <CheckCircle2 class="mt-0.5 size-5 shrink-0 text-white" stroke-width={1.8} aria-hidden="true" />
+              <span class="text-sm leading-6 text-neutral-300">
                 {requirement}
               </span>
-            </Card>
+            </li>
           ))
         }
       </ul>

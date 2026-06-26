@@ -1,4 +1,5 @@
 ---
+import { FileCheck2, MessageSquareText, Sparkles } from "@lucide/astro";
 import Card from "../Card.astro";
 import SectionHeading from "../SectionHeading.astro";
 
@@ -6,73 +7,81 @@ const highlights = [
   {
     title: "Pedido a medida",
     description:
-      "La cotización se arma según la prenda, el tamaño del diseño, la ubicación y la cantidad.",
+      "La cotización se arma según prenda, tamaño del diseño, ubicación y cantidad.",
+    icon: Sparkles,
   },
   {
     title: "Archivo revisado",
     description:
-      "Antes de producir, se revisa si el archivo sirve para DTF o si necesita ajustes básicos.",
+      "Antes de producir, se revisa si el archivo sirve para DTF o necesita ajustes básicos.",
+    icon: FileCheck2,
   },
   {
-    title: "Canales directos",
+    title: "Respuesta ordenada",
     description:
-      "La atención queda preparada para coordinar por WhatsApp o Instagram sin agregar datos reales todavía.",
+      "El formulario reúne los datos clave para responder con menos vueltas.",
+    icon: MessageSquareText,
   },
 ];
 
 const ideas = [
-  "Prendas personalizadas para equipos, marcas o regalos",
-  "Logos, nombres, frases y detalles en zonas específicas",
-  "Diseños para poleras, polerones, tote bags y otros textiles",
+  "Prendas personalizadas para equipos, marcas o regalos.",
+  "Logos, nombres, frases y detalles en zonas específicas.",
+  "Diseños para poleras, polerones, tote bags y otros textiles.",
 ];
 ---
 
 <section
   id="que-hacemos"
-  class="border-t border-neutral-200 bg-neutral-50"
+  class="border-t border-neutral-200 bg-white"
   aria-labelledby="que-hacemos-title"
 >
-  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
     <div class="grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-start">
       <SectionHeading
         eyebrow="Servicio"
-        title="Un flujo simple para transformar tu idea en un pedido cotizable."
+        title="Un flujo simple para convertir tu idea en algo cotizable."
         titleId="que-hacemos-title"
-        intro="Yivalte es un servicio de estampados DTF para personalizar prendas y productos textiles. No funciona como un catálogo masivo: cada pedido se prepara con la información del cliente."
+        intro="Yivalte trabaja estampados DTF personalizados para prendas y soportes textiles. La gracia está en revisar cada caso con la información correcta, no en forzar un catálogo cerrado."
       />
 
-      <Card variant="white" class="p-6">
-        <h3 class="text-lg font-semibold text-neutral-950">
-          Ideas que podemos revisar
-        </h3>
+      <div class="rounded-lg bg-neutral-950 p-6 text-white shadow-xl shadow-neutral-950/15">
+        <h3 class="text-lg font-semibold">Ideas que podemos revisar</h3>
         <ul class="mt-5 grid gap-3">
           {
             ideas.map((idea) => (
-              <li class="flex gap-3 text-sm leading-6 text-neutral-700">
-                <span
-                  class="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400"
-                  aria-hidden="true"
-                />
+              <li class="flex gap-3 text-sm leading-6 text-neutral-300">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-300" aria-hidden="true" />
                 <span>{idea}</span>
               </li>
             ))
           }
         </ul>
-      </Card>
+      </div>
     </div>
 
     <div class="mt-10 grid gap-4 md:grid-cols-3">
       {
-        highlights.map((item) => (
-          <Card>
-            <h3 class="text-base font-semibold text-neutral-950">
-              {item.title}
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-neutral-700">
-              {item.description}
-            </p>
-          </Card>
-        ))
+        highlights.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <Card class="p-6">
+              <span
+                class="grid h-11 w-11 place-items-center rounded-md bg-neutral-950 text-white"
+                aria-hidden="true"
+              >
+                <Icon class="size-5" stroke-width={1.8} />
+              </span>
+              <h3 class="mt-5 text-base font-semibold text-neutral-950">
+                {item.title}
+              </h3>
+              <p class="mt-3 text-sm leading-6 text-neutral-700">
+                {item.description}
+              </p>
+            </Card>
+          );
+        })
       }
     </div>
   </div>

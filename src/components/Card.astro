@@ -3,7 +3,7 @@ interface Props {
   as?: "article" | "div" | "li";
   class?: string;
   padding?: "default" | "none";
-  variant?: "white" | "muted";
+  variant?: "white" | "muted" | "paper" | "dark";
 }
 
 const {
@@ -16,6 +16,8 @@ const {
 const variantClasses = {
   white: "bg-white",
   muted: "bg-neutral-50",
+  paper: "bg-yivalte-paper",
+  dark: "border-white/10 bg-neutral-950 text-white",
 };
 
 const paddingClasses = {

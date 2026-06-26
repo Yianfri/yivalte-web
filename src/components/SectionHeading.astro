@@ -5,6 +5,7 @@ interface Props {
   title: string;
   titleId: string;
   class?: string;
+  tone?: "light" | "dark";
 }
 
 const {
@@ -13,20 +14,34 @@ const {
   title,
   titleId,
   class: className = "",
+  tone = "light",
 } = Astro.props;
+
+const toneClasses = {
+  light: {
+    eyebrow: "text-neutral-500",
+    title: "text-neutral-950",
+    intro: "text-neutral-700",
+  },
+  dark: {
+    eyebrow: "text-neutral-400",
+    title: "text-white",
+    intro: "text-neutral-300",
+  },
+};
 ---
 
 <div class={`max-w-2xl space-y-4 ${className}`}>
-  <p class="text-sm font-semibold uppercase tracking-normal text-neutral-500">
+  <p class={`text-sm font-semibold uppercase ${toneClasses[tone].eyebrow}`}>
     {eyebrow}
   </p>
   <h2
     id={titleId}
-    class="text-3xl font-semibold tracking-normal text-neutral-950 sm:text-4xl"
+    class={`text-3xl font-semibold ${toneClasses[tone].title} sm:text-4xl`}
   >
     {title}
   </h2>
-  <p class="text-base leading-7 text-neutral-700">
+  <p class={`text-base leading-7 ${toneClasses[tone].intro}`}>
     {intro}
   </p>
 </div>

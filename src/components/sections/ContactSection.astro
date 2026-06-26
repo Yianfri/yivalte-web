@@ -1,70 +1,288 @@
 ---
+import { ArrowRight, Mail, MessageCircle, PencilLine } from "@lucide/astro";
 import WhatsAppButton from "../WhatsAppButton.astro";
+import { contactConfig } from "../../data/contact";
 
-const contactDetails = [
-  "Tipo de prenda o producto textil",
-  "Cantidad aproximada",
-  "Ubicación del estampado",
-  "Tamaño aproximado",
-  "Archivo o referencia del diseño",
+const quoteFormEndpoint = contactConfig.quoteFormEndpoint.trim();
+const isFormReady = Boolean(quoteFormEndpoint);
+
+const productOptions = [
+  "Polera manga corta",
+  "Polera manga larga",
+  "Polerón",
+  "Polera niños",
+  "Tote bag",
+  "Otro textil",
 ];
 
-const trustNotes = [
-  "Respuesta guiada por los datos del pedido",
-  "Archivo revisado antes de confirmar",
-  "Coordinación por canales configurables",
+const placementOptions = [
+  "Pecho",
+  "Espalda",
+  "Manga",
+  "Bolsillo",
+  "Frente completo",
+  "A revisar",
 ];
+
+const sizeOptions = [
+  "10x10 cm",
+  "20x30 cm",
+  "30x40 cm",
+  "Otro tamaño",
+  "No estoy seguro/a",
+];
+
+const inputClasses =
+  "min-h-11 w-full rounded-md border border-neutral-300 bg-white px-3 text-sm text-neutral-950 outline-none transition placeholder:text-neutral-400 focus:border-neutral-950 focus:ring-2 focus:ring-neutral-950/10";
+const selectClasses = `${inputClasses} appearance-none`;
+const labelClasses = "text-xs font-semibold uppercase text-neutral-500";
 ---
 
 <section
-  id="contacto"
+  id="cotizar"
   class="border-t border-neutral-200 bg-white"
-  aria-labelledby="contacto-title"
+  aria-labelledby="cotizar-title"
 >
-  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-    <div class="rounded-lg border border-neutral-200 bg-neutral-950 p-6 text-white shadow-xl shadow-neutral-950/10 lg:p-8">
-      <div class="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+    <div class="grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
+      <div class="space-y-8">
         <div class="space-y-5">
-          <div class="space-y-4">
-            <p class="text-sm font-semibold uppercase tracking-normal text-neutral-400">
-              Contacto
-            </p>
-            <h2
-              id="contacto-title"
-              class="text-3xl font-semibold tracking-normal text-white sm:text-4xl"
-            >
-              Envía tu idea y cotizamos tu estampado.
-            </h2>
-            <p class="max-w-2xl text-base leading-7 text-neutral-300">
-              Cuando los canales estén configurados, podrás iniciar la conversación
-              por WhatsApp o Instagram con los datos base del pedido.
-            </p>
-          </div>
-
-          <ul class="grid gap-2 text-sm text-neutral-300 sm:grid-cols-2">
-            {
-              contactDetails.map((detail) => (
-                <li class="flex gap-2">
-                  <span class="text-cyan-300" aria-hidden="true">•</span>
-                  <span>{detail}</span>
-                </li>
-              ))
-            }
-          </ul>
+          <p class="text-sm font-semibold uppercase text-neutral-500">
+            Cotización
+          </p>
+          <h2
+            id="cotizar-title"
+            class="max-w-xl text-3xl font-semibold text-neutral-950 sm:text-4xl"
+          >
+            Cuéntanos qué quieres estampar y armamos la cotización.
+          </h2>
+          <p class="max-w-xl text-base leading-7 text-neutral-700">
+            No necesitas tener todo resuelto. Con la prenda, cantidad, tamaño
+            aproximado y una referencia del diseño ya podemos revisar el caso.
+          </p>
         </div>
 
-        <WhatsAppButton tone="inverted" />
+        <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+          <div class="flex gap-3">
+            <span
+              class="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-neutral-950 text-white"
+              aria-hidden="true"
+            >
+              <Mail class="size-5" stroke-width={1.8} />
+            </span>
+            <div>
+              <h3 class="text-base font-semibold text-neutral-950">
+                Envío por correo
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-neutral-700">
+                El formulario queda listo para conectarse a un servicio externo
+                como Formspree o Getform. Cuando pegues el endpoint, el botón de
+                envío se activará automáticamente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg bg-neutral-950 p-5 text-white">
+          <div class="flex gap-3">
+            <span
+              class="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-white/10 text-white"
+              aria-hidden="true"
+            >
+              <MessageCircle class="size-5" stroke-width={1.8} />
+            </span>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-base font-semibold">Canal rápido</h3>
+              <p class="mt-2 text-sm leading-6 text-neutral-300">
+                WhatsApp queda como acceso secundario para quienes prefieran
+                escribir directo cuando el número esté configurado.
+              </p>
+              <div class="mt-4">
+                <WhatsAppButton tone="inverted" label="Cotizar por WhatsApp" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <ul class="mt-8 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-3">
-        {
-          trustNotes.map((note) => (
-            <li class="rounded-lg bg-white/[0.08] p-4 text-sm leading-6 text-neutral-300">
-              {note}
-            </li>
-          ))
-        }
-      </ul>
+      <form
+        action={quoteFormEndpoint || undefined}
+        method="POST"
+        class="rounded-lg border border-neutral-200 bg-neutral-50 p-5 shadow-xl shadow-neutral-950/10 sm:p-6"
+      >
+        <input type="hidden" name="_subject" value="Nueva cotización Yivalte" />
+        <input type="hidden" name="origen" value="Sitio web Yivalte" />
+
+        <div class="flex items-start gap-3 border-b border-neutral-200 pb-5">
+          <span
+            class="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-neutral-950 text-white"
+            aria-hidden="true"
+          >
+            <PencilLine class="size-5" stroke-width={1.8} />
+          </span>
+          <div>
+            <h3 class="text-lg font-semibold text-neutral-950">
+              Cotizar estampado
+            </h3>
+            <p class="mt-1 text-sm leading-6 text-neutral-600">
+              Completa los datos base. Los detalles finos se pueden ajustar
+              después de revisar tu referencia.
+            </p>
+          </div>
+        </div>
+
+        {!isFormReady && (
+          <p class="mt-5 rounded-md border border-neutral-200 bg-white px-4 py-3 text-sm leading-6 text-neutral-700">
+            <span class="font-semibold text-neutral-950"> quoteFormEndpoint </span>
+          </p>
+        )}
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <label class="grid gap-2">
+            <span class={labelClasses}>Nombre</span>
+            <input
+              class={inputClasses}
+              name="nombre"
+              type="text"
+              autocomplete="name"
+              placeholder="Tu nombre"
+              required
+            />
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Correo</span>
+            <input
+              class={inputClasses}
+              name="correo"
+              type="email"
+              autocomplete="email"
+              placeholder="tu@email.com"
+              required
+            />
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Teléfono</span>
+            <input
+              class={inputClasses}
+              name="telefono"
+              type="tel"
+              autocomplete="tel"
+              placeholder="+56 9 1234 5678"
+            />
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Prenda</span>
+            <select class={selectClasses} name="prenda" required>
+              <option value="">Selecciona una opción</option>
+              {productOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Talla</span>
+            <input
+              class={inputClasses}
+              name="talla"
+              type="text"
+              placeholder="Ej: M, XL, 8 años"
+            />
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Color</span>
+            <input
+              class={inputClasses}
+              name="color"
+              type="text"
+              placeholder="Ej: negro, blanco"
+            />
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Ubicación</span>
+            <select class={selectClasses} name="ubicacion" required>
+              <option value="">Selecciona una opción</option>
+              {placementOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Tamaño</span>
+            <select class={selectClasses} name="tamano" required>
+              <option value="">Selecciona una opción</option>
+              {sizeOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </label>
+
+          <label class="grid gap-2">
+            <span class={labelClasses}>Cantidad</span>
+            <input
+              class={inputClasses}
+              name="cantidad"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              placeholder="Ej: 10"
+              required
+            />
+          </label>
+
+          <fieldset class="grid gap-2">
+            <legend class={labelClasses}>¿Tienes diseño listo?</legend>
+            <div class="flex min-h-11 items-center gap-5 rounded-md border border-neutral-300 bg-white px-3">
+              <label class="inline-flex items-center gap-2 text-sm text-neutral-700">
+                <input
+                  class="size-4 accent-neutral-950"
+                  type="radio"
+                  name="diseno_listo"
+                  value="Sí"
+                  required
+                />
+                Sí
+              </label>
+              <label class="inline-flex items-center gap-2 text-sm text-neutral-700">
+                <input
+                  class="size-4 accent-neutral-950"
+                  type="radio"
+                  name="diseno_listo"
+                  value="No"
+                />
+                No
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <label class="mt-4 grid gap-2">
+          <span class={labelClasses}>Link o notas del diseño</span>
+          <textarea
+            class={`${inputClasses} min-h-24 py-3`}
+            name="referencia_diseno"
+            placeholder="Pega un link, describe la idea o indica qué archivo enviarás después."
+          ></textarea>
+        </label>
+
+        <label class="mt-4 grid gap-2">
+          <span class={labelClasses}>Mensaje adicional</span>
+          <textarea
+            class={`${inputClasses} min-h-28 py-3`}
+            name="mensaje"
+            placeholder="Cuéntanos cualquier detalle importante: fecha, retiro/envío, referencias, etc."
+          ></textarea>
+        </label>
+
+        <button
+          class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-neutral-950 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500"
+          type="submit"
+          disabled={!isFormReady}
+        >
+          Enviar cotización
+          <ArrowRight class="ml-2 size-4" stroke-width={1.8} aria-hidden="true" />
+        </button>
+      </form>
     </div>
   </div>
 </section>
