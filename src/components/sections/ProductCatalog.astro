@@ -1,116 +1,129 @@
 ---
-import { Package, Shirt, ShoppingBag } from "@lucide/astro";
+import { Package } from "@lucide/astro";
 import SectionHeading from "../SectionHeading.astro";
 
 const productOptions = [
   {
     title: "Polera manga corta",
-    detail: "Pecho, espalda o zona pequeña",
-    visual: "light",
-    accent: "bg-cyan-300",
-    icon: Shirt,
+    detail: "Disponible para pecho, espalda o logo pequeño.",
+    image: "/images/yivalte/product-shirt-white.png",
+    secondaryImage: "/images/yivalte/product-shirt-black.png",
+    alt: "Poleras manga corta blanca y negra",
   },
   {
     title: "Polera manga larga",
-    detail: "Frente, espalda o manga",
-    visual: "dark",
-    accent: "bg-neutral-950",
-    icon: Shirt,
+    detail: "Base cómoda para diseños frontales o de espalda.",
+    image: "/images/yivalte/product-long-sleeve-black.png",
+    alt: "Polera negra manga larga",
   },
   {
     title: "Polerón",
-    detail: "Pecho, espalda o bolsillo",
-    visual: "dark",
-    accent: "bg-rose-300",
-    icon: Shirt,
+    detail: "Para estampados grandes, frontales o traseros.",
+    image: "/images/yivalte/product-hoodie-black.png",
+    alt: "Polerón negro",
   },
   {
     title: "Polera niños",
-    detail: "Tallas infantiles por confirmar",
-    visual: "light",
-    accent: "bg-yellow-200",
-    icon: Shirt,
+    detail: "Formato infantil para pedidos personalizados.",
+    image: "/images/yivalte/product-kids-shirt-white.png",
+    alt: "Polera blanca para niños",
   },
   {
     title: "Tote bag",
-    detail: "Una o dos caras según factibilidad",
-    visual: "paper",
-    accent: "bg-cyan-300",
-    icon: ShoppingBag,
+    detail: "Ideal para logos, frases o diseños simples.",
+    image: "/images/yivalte/product-tote-bag.png",
+    alt: "Tote bag beige",
   },
   {
-    title: "Otros textiles",
-    detail: "Sujeto a material y superficie",
-    visual: "paper",
-    accent: "bg-neutral-300",
-    icon: Package,
+    title: "Otro a cotizar",
+    detail: "Revisamos factibilidad según material y superficie.",
+    image: "/images/yivalte/logo-circular.png",
+    alt: "Logo circular Yivalte",
+    fallback: true,
   },
 ];
 ---
 
 <section
   id="catalogo"
-  class="border-t border-neutral-200 bg-yivalte-paper"
+  class="border-t border-neutral-200 bg-white"
   aria-labelledby="catalogo-title"
 >
   <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
-    <div class="grid gap-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+    <div class="grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:items-end">
       <SectionHeading
-        eyebrow="Opciones"
-        title="Elige una base para empezar la cotización."
+        eyebrow="Elige tu prenda"
+        title="Parte por la base y después ajustamos el estampado."
         titleId="catalogo-title"
-        intro="Estas categorías ordenan el pedido inicial. Cada estampado se confirma después de revisar archivo, prenda, ubicación y cantidad."
+        intro="Estas opciones ordenan el pedido inicial. El diseño, ubicación, tamaño y cantidad se confirman antes de producir."
       />
 
       <div class="grid gap-3 sm:grid-cols-3">
-        <p class="rounded-lg border border-neutral-200 bg-white p-4 text-sm leading-6 text-neutral-700">
-          Sin precios publicados por ahora.
+        <p class="rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-sm leading-6 text-neutral-700">
+          Mockups referenciales para elegir prenda.
         </p>
-        <p class="rounded-lg border border-neutral-200 bg-white p-4 text-sm leading-6 text-neutral-700">
-          Cotización según archivo y cantidad.
+        <p class="rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-sm leading-6 text-neutral-700">
+          Precios y tallas se afinan con el pedido.
         </p>
-        <p class="rounded-lg border border-neutral-200 bg-white p-4 text-sm leading-6 text-neutral-700">
-          Fotos reales reemplazables cuando estén listas.
+        <p class="rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-sm leading-6 text-neutral-700">
+          Puedes enviar tu diseño o solo la idea.
         </p>
       </div>
     </div>
 
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {
-        productOptions.map((product) => {
-          const Icon = product.icon;
-          const visualClasses = {
-            light: "bg-white text-neutral-950",
-            dark: "bg-neutral-950 text-white",
-            paper: "bg-neutral-100 text-neutral-950",
-          }[product.visual];
-
-          return (
-            <article class="group overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm shadow-neutral-950/5 transition duration-200 hover:-translate-y-1 hover:border-neutral-300 hover:shadow-xl hover:shadow-neutral-950/10">
-              <div class={`relative aspect-[4/3] overflow-hidden ${visualClasses}`}>
-                <div class="absolute inset-5 rounded-lg border border-current/10"></div>
-                <span class={`absolute left-5 top-5 h-2 w-14 rounded-full ${product.accent}`} aria-hidden="true"></span>
-                <div class="absolute inset-0 grid place-items-center">
-                  <div class="grid h-28 w-28 place-items-center rounded-full border border-current/15 bg-current/[0.04]">
-                    <Icon class="size-14" stroke-width={1.4} aria-hidden="true" />
-                  </div>
+        productOptions.map((product) => (
+          <article class="group overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm shadow-neutral-950/5 transition duration-200 hover:-translate-y-1 hover:border-neutral-300 hover:shadow-xl hover:shadow-neutral-950/10">
+            <div class="relative grid aspect-[4/3] place-items-center overflow-hidden bg-neutral-50 p-5">
+              {product.secondaryImage ? (
+                <div class="relative h-full w-full">
+                  <img
+                    src={product.image}
+                    alt={product.alt}
+                    class="absolute bottom-0 left-0 h-[88%] w-[62%] object-contain object-bottom drop-shadow-xl"
+                    loading="lazy"
+                  />
+                  <img
+                    src={product.secondaryImage}
+                    alt=""
+                    class="absolute bottom-0 right-0 h-[88%] w-[62%] object-contain object-bottom drop-shadow-xl"
+                    loading="lazy"
+                  />
                 </div>
-                <span class="brand-script absolute bottom-5 right-5 text-3xl opacity-80">
-                  Yivalte
-                </span>
-              </div>
+              ) : product.fallback ? (
+                <div class="grid h-32 w-32 place-items-center rounded-full bg-neutral-950 p-5 shadow-xl shadow-neutral-950/20">
+                  <img
+                    src={product.image}
+                    alt={product.alt}
+                    class="h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <img
+                  src={product.image}
+                  alt={product.alt}
+                  class="h-full w-full object-contain object-center drop-shadow-xl"
+                  loading="lazy"
+                />
+              )}
 
-              <div class="p-5">
-                <h3 class="text-lg font-semibold text-neutral-950">
-                  {product.title}
-                </h3>
-                <p class="mt-3 border-t border-neutral-200 pt-4 text-sm font-medium text-neutral-700">
-                  {product.detail}
-                </p>
-              </div>
-            </article>
-          );
-        })
+              {product.fallback && (
+                <Package class="absolute right-5 top-5 size-5 text-neutral-400" stroke-width={1.8} aria-hidden="true" />
+              )}
+            </div>
+
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-neutral-950">
+                {product.title}
+              </h3>
+              <p class="mt-3 border-t border-neutral-200 pt-4 text-sm leading-6 text-neutral-700">
+                {product.detail}
+              </p>
+            </div>
+          </article>
+        ))
       }
     </div>
   </div>

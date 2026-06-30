@@ -4,22 +4,22 @@ import SectionHeading from "../SectionHeading.astro";
 const sizes = [
   {
     label: "10x10 cm",
-    detail: "Logos pequeños, pecho o manga.",
+    detail: "Ideal para logos pequeños en pecho o manga.",
     box: "h-14 w-14",
   },
   {
     label: "20x30 cm",
-    detail: "Diseños medianos frontales.",
+    detail: "Buena escala para diseños frontales medianos.",
     box: "h-20 w-16",
   },
   {
     label: "30x40 cm",
-    detail: "Diseños protagonistas o espalda.",
+    detail: "Pensado para diseños grandes o espalda.",
     box: "h-24 w-20",
   },
   {
     label: "Otro tamaño",
-    detail: "Lo revisamos según prenda y archivo.",
+    detail: "Lo revisamos según prenda, archivo y cantidad.",
     box: "h-16 w-16",
   },
 ];
@@ -27,24 +27,24 @@ const sizes = [
 
 <section
   id="guia-tallas"
-  class="border-t border-neutral-200 bg-yivalte-paper"
+  class="border-t border-neutral-200 bg-white"
   aria-labelledby="guia-tallas-title"
 >
   <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
     <div class="grid gap-10 lg:grid-cols-[0.72fr_1fr] lg:items-start">
       <SectionHeading
         eyebrow="Tamaños"
-        title="Medidas de referencia para orientar el pedido."
+        title="Medidas de estampado para orientar el pedido."
         titleId="guia-tallas-title"
-        intro="No son límites rígidos. Funcionan como punto de partida para entender escala, ubicación y presencia del diseño."
+        intro="Son referencias iniciales para entender escala y ubicación. El tamaño final se confirma antes de producir."
       />
 
       <div class="grid gap-4 sm:grid-cols-2">
         {
           sizes.map((size) => (
-            <article class="grid min-h-40 grid-cols-[5rem_1fr] gap-5 rounded-lg border border-neutral-200 bg-white p-5 shadow-sm shadow-neutral-950/5">
-              <div class="grid place-items-center rounded-md bg-neutral-50">
-                <span class={`${size.box} rounded-sm border border-dashed border-neutral-400 bg-white`} aria-hidden="true"></span>
+            <article class="grid min-h-40 grid-cols-[5rem_1fr] gap-5 rounded-lg border border-neutral-200 bg-neutral-50 p-5 shadow-sm shadow-neutral-950/5">
+              <div class="grid place-items-center rounded-md bg-white">
+                <span class={`${size.box} rounded-sm border border-dashed border-neutral-400 bg-neutral-100`} aria-hidden="true"></span>
               </div>
               <div class="self-center">
                 <h3 class="text-lg font-semibold text-neutral-950">

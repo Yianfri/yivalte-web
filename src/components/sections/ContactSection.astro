@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, Mail, MessageCircle, PencilLine } from "@lucide/astro";
+import { ArrowRight, FileImage, Mail, MessageCircle, PencilLine } from "@lucide/astro";
 import WhatsAppButton from "../WhatsAppButton.astro";
 import { contactConfig } from "../../data/contact";
 
@@ -16,11 +16,11 @@ const productOptions = [
 ];
 
 const placementOptions = [
-  "Pecho",
-  "Espalda",
-  "Manga",
-  "Bolsillo",
-  "Frente completo",
+  "Pecho rectangular",
+  "Pecho cuadrado",
+  "Logo frontal",
+  "Espalda rectangular",
+  "Espalda cuadrado",
   "A revisar",
 ];
 
@@ -44,46 +44,25 @@ const labelClasses = "text-xs font-semibold uppercase text-neutral-500";
   aria-labelledby="cotizar-title"
 >
   <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
-    <div class="grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
-      <div class="space-y-8">
+    <div class="grid gap-10 lg:grid-cols-[0.72fr_1fr] lg:items-start">
+      <div class="space-y-6">
         <div class="space-y-5">
-          <p class="text-sm font-semibold uppercase text-neutral-500">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
             Cotización
           </p>
           <h2
             id="cotizar-title"
-            class="max-w-xl text-3xl font-semibold text-neutral-950 sm:text-4xl"
+            class="max-w-xl text-3xl font-semibold leading-tight text-neutral-950 sm:text-4xl"
           >
-            Cuéntanos qué quieres estampar y armamos la cotización.
+            Completa lo básico y armamos tu pedido.
           </h2>
           <p class="max-w-xl text-base leading-7 text-neutral-700">
-            No necesitas tener todo resuelto. Con la prenda, cantidad, tamaño
-            aproximado y una referencia del diseño ya podemos revisar el caso.
+            Con prenda, cantidad, ubicación y una referencia del diseño ya se puede
+            revisar el caso. Los detalles finos se ajustan después.
           </p>
         </div>
 
-        <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
-          <div class="flex gap-3">
-            <span
-              class="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-neutral-950 text-white"
-              aria-hidden="true"
-            >
-              <Mail class="size-5" stroke-width={1.8} />
-            </span>
-            <div>
-              <h3 class="text-base font-semibold text-neutral-950">
-                Envío por correo
-              </h3>
-              <p class="mt-2 text-sm leading-6 text-neutral-700">
-                El formulario queda listo para conectarse a un servicio externo
-                como Formspree o Getform. Cuando pegues el endpoint, el botón de
-                envío se activará automáticamente.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-lg bg-neutral-950 p-5 text-white">
+        <div class="rounded-lg bg-neutral-950 p-5 text-white shadow-xl shadow-neutral-950/15">
           <div class="flex gap-3">
             <span
               class="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-white/10 text-white"
@@ -94,12 +73,32 @@ const labelClasses = "text-xs font-semibold uppercase text-neutral-500";
             <div class="min-w-0 flex-1">
               <h3 class="text-base font-semibold">Canal rápido</h3>
               <p class="mt-2 text-sm leading-6 text-neutral-300">
-                WhatsApp queda como acceso secundario para quienes prefieran
-                escribir directo cuando el número esté configurado.
+                WhatsApp queda preparado para contacto directo cuando el número
+                esté configurado.
               </p>
               <div class="mt-4">
                 <WhatsAppButton tone="inverted" label="Cotizar por WhatsApp" />
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+          <div class="flex gap-3">
+            <span
+              class="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-white text-neutral-950"
+              aria-hidden="true"
+            >
+              <FileImage class="size-5" stroke-width={1.8} />
+            </span>
+            <div>
+              <h3 class="text-base font-semibold text-neutral-950">
+                Archivo recomendado
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-neutral-700">
+                PNG en buena calidad y ojalá sin fondo. También sirve un link o
+                una referencia visual si todavía no tienes el archivo final.
+              </p>
             </div>
           </div>
         </div>
@@ -122,18 +121,19 @@ const labelClasses = "text-xs font-semibold uppercase text-neutral-500";
           </span>
           <div>
             <h3 class="text-lg font-semibold text-neutral-950">
-              Cotizar estampado
+              Solicita tu cotización
             </h3>
             <p class="mt-1 text-sm leading-6 text-neutral-600">
-              Completa los datos base. Los detalles finos se pueden ajustar
-              después de revisar tu referencia.
+              Deja los datos base para responder con menos vueltas.
             </p>
           </div>
         </div>
 
         {!isFormReady && (
           <p class="mt-5 rounded-md border border-neutral-200 bg-white px-4 py-3 text-sm leading-6 text-neutral-700">
-            <span class="font-semibold text-neutral-950"> quoteFormEndpoint </span>
+            <Mail class="mr-2 inline size-4 align-text-bottom text-neutral-500" stroke-width={1.8} aria-hidden="true" />
+            El envío por formulario queda listo para activar cuando se configure
+            el endpoint.
           </p>
         )}
 

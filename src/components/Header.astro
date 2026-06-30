@@ -3,10 +3,10 @@ import { ArrowRight } from "@lucide/astro";
 
 const navigationItems = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Opciones", href: "#catalogo" },
+  { label: "Prendas", href: "#catalogo" },
   { label: "Cómo pedir", href: "#como-pedir" },
   { label: "Tamaños", href: "#guia-tallas" },
-  { label: "Archivos", href: "#requisitos-diseno" },
+  { label: "Contacto", href: "#cotizar" },
 ];
 ---
 
@@ -16,7 +16,7 @@ const navigationItems = [
     aria-label="Navegación principal"
   >
     <a class="inline-flex w-fit items-center gap-3" href="#inicio" aria-label="Yivalte inicio">
-      <span class="brand-script text-3xl leading-none text-white drop-shadow-[0_0_14px_rgba(255,255,255,0.55)]">
+      <span class="brand-script text-3xl leading-none text-white drop-shadow-[0_0_14px_rgba(255,255,255,0.65)]">
         Yivalte
       </span>
     </a>
@@ -41,7 +41,7 @@ const navigationItems = [
         class="inline-flex min-h-10 w-fit items-center justify-center rounded-md border border-white/20 px-4 py-2 text-xs font-semibold uppercase text-white transition-colors hover:border-white hover:bg-white hover:text-neutral-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-neutral-950"
         href="#cotizar"
       >
-        Cotizar estampado
+        Cotizar
         <ArrowRight class="ml-2 size-4" stroke-width={1.8} aria-hidden="true" />
       </a>
     </div>

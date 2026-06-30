@@ -1,11 +1,9 @@
 ---
 import ContactSection from "../components/sections/ContactSection.astro";
-import DesignRequirements from "../components/sections/DesignRequirements.astro";
 import Hero from "../components/sections/Hero.astro";
 import HowToOrder from "../components/sections/HowToOrder.astro";
 import ProductCatalog from "../components/sections/ProductCatalog.astro";
 import SizeGuide from "../components/sections/SizeGuide.astro";
-import WhatWeDo from "../components/sections/WhatWeDo.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Yivalte - Estampados personalizados DTF";
@@ -13,15 +11,13 @@ const pageTitle = "Yivalte - Estampados personalizados DTF";
 
 <BaseLayout
   title={pageTitle}
-  description="Cotiza estampados personalizados DTF para prendas y productos textiles con Yivalte."
+  description="Cotiza estampados personalizados DTF para poleras, polerones y productos textiles con Yivalte."
 >
   <main>
     <Hero />
-    <WhatWeDo />
     <ProductCatalog />
     <HowToOrder />
     <SizeGuide />
-    <DesignRequirements />
     <ContactSection />
   </main>
 </BaseLayout>
