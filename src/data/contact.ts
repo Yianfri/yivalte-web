@@ -1,5 +1,6 @@
 export const contactConfig = {
   whatsappNumber: "",
+  email: "",
   instagramUrl: "",
 } as const;
 
