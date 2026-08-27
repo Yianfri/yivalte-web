@@ -283,17 +283,18 @@ const inputClasses =
     configuredWhatsapp: contactConfig.whatsappNumber,
   }}
 >
-  const form = document.querySelector<HTMLFormElement>("#cotizador-form");
-  const output = document.querySelector<HTMLTextAreaElement>("#quote-output");
-  const copyButton = document.querySelector<HTMLButtonElement>("#copy-quote");
-  const whatsappLink = document.querySelector<HTMLAnchorElement>("#whatsapp-quote");
-  const emailLink = document.querySelector<HTMLAnchorElement>("#email-quote");
-  const status = document.querySelector<HTMLParagraphElement>("#quote-status");
+  const form = document.querySelector("#cotizador-form");
+  const output = document.querySelector("#quote-output");
+  const copyButton = document.querySelector("#copy-quote");
+  const whatsappLink = document.querySelector("#whatsapp-quote");
+  const emailLink = document.querySelector("#email-quote");
+  const status = document.querySelector("#quote-status");
 
   if (form && output && copyButton && whatsappLink && emailLink && status) {
-    const getValue = (id: string) =>
-      (form.elements.namedItem(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)
-        .value.trim();
+    const getValue = (id) => {
+      const field = form.elements.namedItem(id);
+      return field && "value" in field ? String(field.value).trim() : "";
+    };
 
     const buildMessage = () => {
       const quantity = getValue("quantity") || "Por confirmar";
@@ -320,8 +321,8 @@ const inputClasses =
 
     const cleanWhatsapp = configuredWhatsapp.replace(/\D/g, "");
 
-    const productField = form.elements.namedItem("product") as HTMLSelectElement;
-    const productLinks = document.querySelectorAll<HTMLAnchorElement>(
+    const productField = form.elements.namedItem("product");
+    const productLinks = document.querySelectorAll(
       "[data-quote-product]"
     );
 
