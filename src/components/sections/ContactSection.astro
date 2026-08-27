@@ -1,5 +1,9 @@
 ---
+import { contactConfig } from "../../data/contact";
 import WhatsAppButton from "../WhatsAppButton.astro";
+
+const hasConfiguredContact =
+  Boolean(contactConfig.whatsappNumber) || Boolean(contactConfig.instagramUrl);
 
 const contactDetails = [
   "Tipo de prenda o producto textil",
@@ -59,7 +63,23 @@ const shippingDetails = [
           </ul>
         </div>
 
-        <WhatsAppButton tone="inverted" />
+        <div class="flex w-full flex-col gap-3 sm:w-auto">
+          <a
+            class="inline-flex min-h-11 items-center justify-center rounded-md bg-cyan-300 px-5 py-3 text-center text-sm font-semibold text-neutral-950 transition-colors hover:bg-cyan-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+            href="#cotizador"
+          >
+            Preparar cotización
+          </a>
+          {
+            hasConfiguredContact ? (
+              <WhatsAppButton tone="inverted" />
+            ) : (
+              <p class="max-w-xs text-center text-xs leading-5 text-neutral-400 sm:text-right">
+                El contacto directo se habilitará cuando configuremos los canales de atención.
+              </p>
+            )
+          }
+        </div>
       </div>
 
       <div class="mt-8 grid gap-6 border-t border-white/10 pt-6 md:grid-cols-[1fr_1fr]">
