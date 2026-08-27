@@ -138,6 +138,49 @@ const inputClasses =
           </label>
         </div>
 
+        <fieldset class="mt-6 border-t border-neutral-200 pt-6">
+          <legend class="text-base font-semibold text-neutral-950">Tus datos</legend>
+          <p class="mt-1 text-sm leading-6 text-neutral-600">
+            Los usaremos solo para responder esta solicitud de cotización.
+          </p>
+
+          <div class="mt-4 grid gap-5 sm:grid-cols-2">
+            <label class="text-sm font-semibold text-neutral-950">
+              Nombre
+              <input
+                id="quote-client-name"
+                name="clientName"
+                class={inputClasses}
+                type="text"
+                autocomplete="name"
+                placeholder="Tu nombre"
+                required
+              />
+            </label>
+
+            <label class="text-sm font-semibold text-neutral-950">
+              Contacto
+              <input
+                id="quote-client-contact"
+                name="clientContact"
+                class={inputClasses}
+                type="text"
+                placeholder="WhatsApp o correo"
+                required
+              />
+            </label>
+          </div>
+
+          <label class="mt-5 block text-sm font-semibold text-neutral-950">
+            Canal preferido
+            <select id="quote-channel" name="channel" class={inputClasses} required>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Correo">Correo</option>
+              <option value="Por confirmar">Por confirmar</option>
+            </select>
+          </label>
+        </fieldset>
+
         <label class="mt-5 block text-sm font-semibold text-neutral-950">
           Estado del diseño
           <select id="quote-design" name="design" class={inputClasses} required>
@@ -259,6 +302,10 @@ const inputClasses =
 
       return [
         "Hola, quiero cotizar un estampado personalizado DTF.",
+        "",
+        "Nombre: " + getValue("clientName"),
+        "Contacto: " + getValue("clientContact"),
+        "Canal preferido: " + getValue("channel"),
         "",
         "Producto: " + getValue("product"),
         "Cantidad aproximada: " + quantity,
