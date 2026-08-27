@@ -7,7 +7,7 @@ const productOptions = [
   "Polerón",
   "Polera niños",
   "Tote bag",
-  "Otro textil",
+  "Otros textiles",
 ];
 
 const locationOptions = [
@@ -319,6 +319,23 @@ const inputClasses =
     };
 
     const cleanWhatsapp = configuredWhatsapp.replace(/\D/g, "");
+
+    const productField = form.elements.namedItem("product") as HTMLSelectElement;
+    const productLinks = document.querySelectorAll<HTMLAnchorElement>(
+      "[data-quote-product]"
+    );
+
+    productLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        const product = link.dataset.quoteProduct;
+
+        if (product && productField) {
+          productField.value = product;
+          status.textContent =
+            "Producto seleccionado: " + product + ". Completa el resto del formulario.";
+        }
+      });
+    });
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
