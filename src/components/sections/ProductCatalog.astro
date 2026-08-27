@@ -7,6 +7,7 @@ const productOptions = [
     description:
       "Opción versátil para logos, frases, ilustraciones y diseños frontales o de espalda.",
     detail: "Pecho, espalda o zona pequeña",
+    price: "Desde $9.990",
     visual: "short",
     accent: "bg-cyan-300",
   },
@@ -15,6 +16,7 @@ const productOptions = [
     description:
       "Pensada para composiciones con detalle en pecho, espalda o mangas según el archivo.",
     detail: "Frente, espalda o manga",
+    price: "Por confirmar",
     visual: "long",
     accent: "bg-neutral-950",
   },
@@ -23,6 +25,7 @@ const productOptions = [
     description:
       "Buen soporte para piezas protagonistas, marcas de equipo o diseños de mayor presencia.",
     detail: "Pecho, espalda o bolsillo",
+    price: "Desde $16.990",
     visual: "hoodie",
     accent: "bg-rose-300",
   },
@@ -31,6 +34,7 @@ const productOptions = [
     description:
       "Formato infantil para diseños personalizados, nombres o motivos de tamaño controlado.",
     detail: "Tallas infantiles por confirmar",
+    price: "Por confirmar",
     visual: "kids",
     accent: "bg-yellow-200",
   },
@@ -39,6 +43,7 @@ const productOptions = [
     description:
       "Alternativa textil para bolsas reutilizables, regalos, eventos o identidad de marca.",
     detail: "Una o dos caras según factibilidad",
+    price: "Por confirmar",
     visual: "tote",
     accent: "bg-cyan-300",
   },
@@ -47,6 +52,7 @@ const productOptions = [
     description:
       "Placeholder para nuevas bases textiles que se puedan revisar caso a caso antes de cotizar.",
     detail: "Sujeto a material y superficie",
+    price: "Por confirmar",
     visual: "stack",
     accent: "bg-neutral-300",
   },
@@ -179,6 +185,9 @@ const assurances = [
               </p>
               <p class="mt-5 border-t border-neutral-200 pt-4 text-sm font-medium text-neutral-950">
                 {product.detail}
+              </p>
+              <p class="mt-2 text-xs font-semibold text-neutral-500">
+                Precio referencial: {product.price}
               </p>
               <a
                 class="mt-5 inline-flex min-h-10 items-center justify-center rounded-md border border-neutral-300 px-4 py-2 text-center text-sm font-semibold text-neutral-950 transition-colors hover:border-neutral-950 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
