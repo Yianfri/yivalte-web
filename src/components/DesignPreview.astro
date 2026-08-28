@@ -1,98 +1,67 @@
 <div
   id="probador"
-  class="design-preview relative flex min-h-[37rem] flex-col overflow-hidden bg-neutral-950 text-white lg:min-h-full"
+  class="design-preview flex min-h-[39rem] flex-col overflow-hidden bg-[#ded9cf] text-neutral-950 lg:min-h-full"
   data-design-preview
 >
-  <div class="relative z-10 flex items-start justify-between gap-4 px-5 pt-5 sm:px-7 sm:pt-7">
+  <div class="flex items-start justify-between gap-5 px-5 pt-6 sm:px-8 sm:pt-8">
     <div>
-      <p class="text-[0.65rem] font-black uppercase tracking-[0.22em] text-[#9fd8c5]">Prueba tu diseño</p>
-      <p class="mt-1 text-sm text-neutral-300">Una vista rápida antes de cotizar.</p>
+      <p class="text-[0.65rem] font-black uppercase tracking-[0.22em] text-[#ef4b32]">Arma una referencia</p>
+      <p class="mt-1 text-sm text-neutral-700">Prueba color, lado y tamaño antes de cotizar.</p>
     </div>
-    <span class="border border-white/20 px-2 py-1 text-[0.6rem] font-bold uppercase tracking-[0.16em] text-neutral-300">
-      Vista previa
-    </span>
+    <p class="max-w-32 text-right text-[0.62rem] font-bold uppercase leading-4 tracking-[0.14em] text-neutral-500">
+      No reemplaza la muestra final
+    </p>
   </div>
 
-  <div class="relative flex min-h-[24rem] flex-1 items-center justify-center px-8 py-5 sm:px-14">
-    <span class="absolute left-6 top-1/2 h-px w-12 bg-[#ef4b32] sm:left-10 sm:w-20"></span>
-    <span class="absolute right-6 top-[38%] h-12 w-px bg-[#9fd8c5] sm:right-10 sm:h-20"></span>
+  <div class="relative flex min-h-[27rem] flex-1 items-center justify-center overflow-hidden px-10 py-3 sm:px-16">
+    <div class="absolute left-0 top-[28%] h-px w-10 bg-[#ef4b32] sm:w-16"></div>
+    <div class="absolute bottom-[18%] right-0 h-px w-12 bg-neutral-950 sm:w-20"></div>
 
-    <div class="shirt-stage relative aspect-[4/5] w-full max-w-[24rem]" data-shirt-stage>
-      <svg
-        class="absolute inset-0 h-full w-full overflow-visible"
-        viewBox="0 0 420 500"
-        role="img"
-        aria-label="Vista previa de una polera personalizada"
-      >
-        <defs>
-          <filter id="shirt-shadow" x="-30%" y="-30%" width="160%" height="170%">
-            <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000" flood-opacity="0.42" />
-          </filter>
-        </defs>
-        <path
-          data-shirt-shape
-          d="M139 48c19 12 42 18 71 18s52-6 71-18l77 45-31 80-36-19v296c-53 15-109 15-162 0V154l-36 19-31-80z"
-          fill="#f1ede2"
-          stroke="#d5cfc1"
-          stroke-width="2"
-          filter="url(#shirt-shadow)"
-        />
-        <path
-          data-neck-front
-          d="M163 59c4 34 25 49 47 49s43-15 47-49"
-          fill="none"
-          stroke="#c7c0b2"
-          stroke-width="8"
-        />
-        <path
-          data-neck-back
-          class="hidden"
-          d="M163 59c10 18 26 25 47 25s37-7 47-25"
-          fill="none"
-          stroke="#c7c0b2"
-          stroke-width="8"
-        />
-        <path d="M129 154l26-15M291 154l-26-15" stroke="#c7c0b2" stroke-width="2" opacity="0.75" />
-      </svg>
+    <div class="garment-window relative aspect-[3/4] h-[25rem] max-h-full overflow-hidden sm:h-[29rem]">
+      <img
+        class="garment-sprite pointer-events-none h-full max-w-none transition-[transform,filter] duration-500 ease-out"
+        data-garment-sprite
+        src="/products/tshirt-views-v2.webp"
+        alt="Polera negra vista de frente"
+        width="1536"
+        height="1024"
+      />
 
-      <div class="pointer-events-none absolute left-1/2 top-[31%] flex h-[38%] w-[42%] -translate-x-1/2 items-start justify-center overflow-hidden">
+      <div class="pointer-events-none absolute left-1/2 top-[28%] flex h-[38%] w-[38%] -translate-x-1/2 items-start justify-center overflow-hidden">
         <img
-          class="mt-[8%] max-h-full w-[58%] object-contain brightness-0 transition-[width,filter] duration-200"
+          class="mt-[8%] max-h-full w-[58%] object-contain transition-[width,filter] duration-200"
           data-preview-art
           data-default-art="true"
           src="/brand/yivalte-wordmark.svg"
-          alt="Diseño aplicado a la polera"
+          alt="Diseño Yivalte aplicado a la polera"
         />
       </div>
     </div>
   </div>
 
-  <div class="relative z-10 border-t border-white/15 bg-neutral-950/95 px-5 py-5 sm:px-7">
-    <div class="grid gap-4 sm:grid-cols-[auto_auto_1fr] sm:items-end">
+  <div class="border-t border-neutral-950/15 bg-[#f4f1e9] px-5 py-5 sm:px-8">
+    <div class="grid gap-x-7 gap-y-5 sm:grid-cols-[auto_auto_1fr] sm:items-end">
       <fieldset>
-        <legend class="mb-2 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-neutral-400">Color</legend>
+        <legend class="mb-2 text-[0.62rem] font-black uppercase tracking-[0.16em] text-neutral-500">Prenda</legend>
         <div class="flex gap-2">
           <button
-            class="h-8 w-8 rounded-full border-2 border-[#ef4b32] bg-[#f1ede2] ring-2 ring-transparent ring-offset-2 ring-offset-neutral-950"
+            class="h-7 w-7 rounded-full border border-neutral-400 bg-[#ede8db] outline outline-2 outline-offset-2 outline-transparent"
             type="button"
-            data-shirt-color="#f1ede2"
-            data-shirt-stroke="#d5cfc1"
+            data-shirt-color="crudo"
             aria-label="Polera cruda"
-            aria-pressed="true"
-          ></button>
-          <button
-            class="h-8 w-8 rounded-full border-2 border-white/50 bg-[#171717] ring-2 ring-transparent ring-offset-2 ring-offset-neutral-950"
-            type="button"
-            data-shirt-color="#171717"
-            data-shirt-stroke="#343434"
-            aria-label="Polera negra"
             aria-pressed="false"
           ></button>
           <button
-            class="h-8 w-8 rounded-full border-2 border-white/50 bg-[#b74030] ring-2 ring-transparent ring-offset-2 ring-offset-neutral-950"
+            class="h-7 w-7 rounded-full border border-neutral-950 bg-neutral-900 outline outline-2 outline-offset-2 outline-[#ef4b32]"
             type="button"
-            data-shirt-color="#b74030"
-            data-shirt-stroke="#8d3025"
+            data-shirt-color="negro"
+            aria-label="Polera negra"
+            aria-pressed="true"
+          ></button>
+          <button
+            class="h-7 w-7 rounded-full border border-[#9d3527] bg-[#b74030] outline outline-2 outline-offset-2 outline-transparent"
+            type="button"
+            data-shirt-color="rojo"
             aria-label="Polera roja"
             aria-pressed="false"
           ></button>
@@ -100,19 +69,19 @@
       </fieldset>
 
       <fieldset>
-        <legend class="mb-2 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-neutral-400">Vista</legend>
-        <div class="flex border border-white/20 text-xs font-bold">
-          <button class="bg-white px-3 py-2 text-neutral-950" type="button" data-shirt-side="front" aria-pressed="true">
+        <legend class="mb-2 text-[0.62rem] font-black uppercase tracking-[0.16em] text-neutral-500">Lado</legend>
+        <div class="flex gap-4 text-sm font-bold">
+          <button class="border-b-2 border-neutral-950 pb-1" type="button" data-shirt-side="front" aria-pressed="true">
             Frente
           </button>
-          <button class="px-3 py-2 text-white" type="button" data-shirt-side="back" aria-pressed="false">
+          <button class="border-b-2 border-transparent pb-1 text-neutral-500" type="button" data-shirt-side="back" aria-pressed="false">
             Espalda
           </button>
         </div>
       </fieldset>
 
-      <label class="block text-[0.65rem] font-bold uppercase tracking-[0.16em] text-neutral-400">
-        Tamaño del estampado
+      <label class="block text-[0.62rem] font-black uppercase tracking-[0.16em] text-neutral-500">
+        Tamaño
         <input
           class="mt-3 block w-full accent-[#ef4b32]"
           type="range"
@@ -126,23 +95,23 @@
     </div>
 
     <div class="mt-5 flex flex-wrap items-center gap-3">
-      <label class="inline-flex min-h-11 cursor-pointer items-center justify-center bg-[#ef4b32] px-4 py-2 text-sm font-black text-white transition-colors hover:bg-white hover:text-neutral-950">
-        Subir PNG o JPG
+      <label class="inline-flex min-h-11 cursor-pointer items-center justify-center border border-neutral-950 bg-white px-4 py-2 text-sm font-black transition-colors hover:bg-neutral-950 hover:text-white">
+        Elegir diseño
         <input class="sr-only" type="file" accept="image/png,image/jpeg,image/webp" data-art-upload />
       </label>
-      <button class="hidden min-h-11 border border-white/25 px-4 py-2 text-sm font-bold hover:border-white" type="button" data-reset-art>
-        Quitar diseño
+      <button class="hidden min-h-11 px-2 py-2 text-sm font-bold text-neutral-600 hover:text-neutral-950" type="button" data-reset-art>
+        Quitar
       </button>
       <a
-        class="ml-auto inline-flex min-h-11 items-center border-b border-white px-1 py-2 text-sm font-bold hover:text-[#9fd8c5]"
+        class="ml-auto inline-flex min-h-11 items-center bg-neutral-950 px-4 py-2 text-sm font-black text-white transition-colors hover:bg-[#ef4b32]"
         href="#cotizador"
         data-preview-to-quote
       >
         Cotizar esta idea →
       </a>
     </div>
-    <p class="mt-3 text-xs leading-5 text-neutral-400" data-preview-status role="status" aria-live="polite">
-      Tu archivo se previsualiza aquí y no sale de tu navegador.
+    <p class="mt-3 text-xs leading-5 text-neutral-500" data-preview-status role="status" aria-live="polite">
+      Usa PNG transparente para que el estampado no quede con un recuadro.
     </p>
   </div>
 </div>
@@ -151,9 +120,7 @@
   const previewRoot = document.querySelector("[data-design-preview]");
 
   if (previewRoot instanceof HTMLElement) {
-    const shirt = previewRoot.querySelector("[data-shirt-shape]");
-    const frontNeck = previewRoot.querySelector("[data-neck-front]");
-    const backNeck = previewRoot.querySelector("[data-neck-back]");
+    const garment = previewRoot.querySelector("[data-garment-sprite]");
     const artwork = previewRoot.querySelector("[data-preview-art]");
     const upload = previewRoot.querySelector("[data-art-upload]");
     const reset = previewRoot.querySelector("[data-reset-art]");
@@ -162,29 +129,32 @@
     const quoteLink = previewRoot.querySelector("[data-preview-to-quote]");
     const defaultArtwork = "/brand/yivalte-wordmark.svg";
     let objectUrl = "";
-    let selectedColor = "crudo";
+    let selectedColor = "negro";
     let selectedSide = "Frente";
+
+    const garmentFilters = {
+      crudo: "none",
+      negro: "brightness(0.2) contrast(1.22)",
+      rojo: "sepia(1) saturate(2.8) hue-rotate(325deg) brightness(0.68) contrast(1.05)",
+    };
 
     const updateDefaultArtwork = () => {
       if (!(artwork instanceof HTMLImageElement) || artwork.dataset.defaultArt !== "true") return;
-      const isDark = selectedColor === "negro" || selectedColor === "rojo";
-      artwork.style.filter = isDark ? "none" : "brightness(0)";
+      artwork.style.filter = selectedColor === "crudo" ? "brightness(0)" : "none";
     };
 
     previewRoot.querySelectorAll("[data-shirt-color]").forEach((button) => {
       button.addEventListener("click", () => {
-        if (!(button instanceof HTMLButtonElement) || !(shirt instanceof SVGElement)) return;
-        const fill = button.dataset.shirtColor || "#f1ede2";
-        const stroke = button.dataset.shirtStroke || "#d5cfc1";
-        shirt.setAttribute("fill", fill);
-        shirt.setAttribute("stroke", stroke);
-        selectedColor = fill === "#171717" ? "negro" : fill === "#b74030" ? "rojo" : "crudo";
+        if (!(button instanceof HTMLButtonElement) || !(garment instanceof HTMLImageElement)) return;
+        selectedColor = button.dataset.shirtColor || "crudo";
+        garment.style.filter = garmentFilters[selectedColor] || "none";
+        garment.alt = `Polera ${selectedColor} vista de ${selectedSide.toLowerCase()}`;
 
         previewRoot.querySelectorAll("[data-shirt-color]").forEach((item) => {
           const active = item === button;
           item.setAttribute("aria-pressed", String(active));
-          item.classList.toggle("border-[#ef4b32]", active);
-          item.classList.toggle("border-white/50", !active);
+          item.classList.toggle("outline-[#ef4b32]", active);
+          item.classList.toggle("outline-transparent", !active);
         });
         updateDefaultArtwork();
       });
@@ -192,18 +162,18 @@
 
     previewRoot.querySelectorAll("[data-shirt-side]").forEach((button) => {
       button.addEventListener("click", () => {
-        if (!(button instanceof HTMLButtonElement)) return;
+        if (!(button instanceof HTMLButtonElement) || !(garment instanceof HTMLImageElement)) return;
         const isBack = button.dataset.shirtSide === "back";
         selectedSide = isBack ? "Espalda" : "Frente";
-        frontNeck?.classList.toggle("hidden", isBack);
-        backNeck?.classList.toggle("hidden", !isBack);
+        garment.style.transform = isBack ? "translateX(-50%)" : "translateX(0)";
+        garment.alt = `Polera ${selectedColor} vista de ${isBack ? "espalda" : "frente"}`;
 
         previewRoot.querySelectorAll("[data-shirt-side]").forEach((item) => {
           const active = item === button;
           item.setAttribute("aria-pressed", String(active));
-          item.classList.toggle("bg-white", active);
-          item.classList.toggle("text-neutral-950", active);
-          item.classList.toggle("text-white", !active);
+          item.classList.toggle("border-neutral-950", active);
+          item.classList.toggle("border-transparent", !active);
+          item.classList.toggle("text-neutral-500", !active);
         });
       });
     });
@@ -237,7 +207,7 @@
         artwork.style.filter = "none";
         artwork.alt = `Diseño ${file.name} aplicado a la polera`;
         reset.classList.remove("hidden");
-        status.textContent = `${file.name} listo. Recuerda adjuntarlo también al pedir la cotización.`;
+        status.textContent = `${file.name} listo. Para un mejor resultado, usa fondo transparente.`;
       });
 
       reset.addEventListener("click", () => {
@@ -250,7 +220,7 @@
         artwork.style.width = "58%";
         if (size instanceof HTMLInputElement) size.value = "58";
         reset.classList.add("hidden");
-        status.textContent = "Tu archivo se previsualiza aquí y no sale de tu navegador.";
+        status.textContent = "Usa PNG transparente para que el estampado no quede con un recuadro.";
         updateDefaultArtwork();
       });
     }
@@ -277,23 +247,28 @@
 </script>
 
 <style>
-  .shirt-stage {
-    animation: shirt-arrive 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  .garment-window {
+    animation: garment-arrive 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
 
-  @keyframes shirt-arrive {
+  .garment-sprite {
+    width: 200%;
+    filter: brightness(0.2) contrast(1.22);
+  }
+
+  @keyframes garment-arrive {
     from {
       opacity: 0;
-      transform: translateY(24px) rotate(2deg) scale(0.96);
+      transform: translateY(18px) scale(0.98);
     }
     to {
       opacity: 1;
-      transform: translateY(0) rotate(0) scale(1);
+      transform: translateY(0) scale(1);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .shirt-stage {
+    .garment-window {
       animation: none;
     }
   }
