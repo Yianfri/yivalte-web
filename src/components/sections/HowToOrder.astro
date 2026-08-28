@@ -1,71 +1,30 @@
 ---
-import Card from "../Card.astro";
-import SectionHeading from "../SectionHeading.astro";
-
 const steps = [
-  {
-    title: "Elige prenda o producto",
-    description:
-      "Indica qué quieres personalizar y si ya tienes la prenda o necesitas orientación.",
-  },
-  {
-    title: "Define ubicación del estampado",
-    description:
-      "Cuéntanos si irá en pecho, espalda, manga, bolsillo u otra zona visible.",
-  },
-  {
-    title: "Envía diseño o idea",
-    description:
-      "Puedes mandar un archivo listo, una referencia visual o una descripción inicial.",
-  },
-  {
-    title: "Revisamos archivo",
-    description:
-      "Validamos de forma preliminar resolución, fondo, proporción y posibles ajustes.",
-  },
-  {
-    title: "Confirmamos cotización",
-    description:
-      "Respondemos con una referencia según tamaño, prenda, cantidad y archivo.",
-  },
-  {
-    title: "Coordinamos entrega",
-    description:
-      "Definimos retiro o envío cuando el pedido esté confirmado y listo para producir.",
-  },
+  ["01", "Cuéntanos", "Prenda, cantidad y dónde quieres el estampado."],
+  ["02", "Lo revisamos", "Miramos tu archivo y aclaramos lo que falte."],
+  ["03", "Confirmamos", "Te damos el valor y coordinamos producción y entrega."],
 ];
 ---
 
-<section
-  id="como-pedir"
-  class="border-t border-neutral-200 bg-white"
-  aria-labelledby="como-pedir-title"
->
-  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-    <SectionHeading
-      eyebrow="Cómo pedir"
-      title="Un proceso claro para cotizar sin complicarte."
-      titleId="como-pedir-title"
-      intro="Mientras más precisa sea la información inicial, más rápida y clara será la respuesta de cotización."
-    />
+<section id="como-pedir" class="bg-[#9fd8c5]" aria-labelledby="como-pedir-title">
+  <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+    <div class="flex flex-col gap-5 border-b-2 border-neutral-950 pb-7 sm:flex-row sm:items-end sm:justify-between">
+      <h2 id="como-pedir-title" class="text-4xl font-black tracking-[-0.055em] sm:text-5xl">
+        Sin vueltas.
+      </h2>
+      <p class="max-w-md text-sm leading-6 text-neutral-800">
+        No necesitas llegar con todo resuelto. Una referencia o una idea también sirve.
+      </p>
+    </div>
 
-    <ol class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <ol class="grid md:grid-cols-3">
       {
-        steps.map((step, index) => (
-          <Card as="li" class="relative min-h-52">
-            <span
-              class="grid h-10 w-10 place-items-center rounded-md bg-neutral-950 text-sm font-semibold text-white"
-              aria-hidden="true"
-            >
-              {index + 1}
-            </span>
-            <h3 class="mt-5 text-base font-semibold text-neutral-950">
-              {step.title}
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-neutral-700">
-              {step.description}
-            </p>
-          </Card>
+        steps.map(([number, title, description]) => (
+          <li class="border-b border-neutral-950/30 py-7 md:border-b-0 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+            <span class="text-xs font-black">{number}</span>
+            <h3 class="mt-8 text-2xl font-black tracking-tight">{title}</h3>
+            <p class="mt-2 max-w-xs text-sm leading-6 text-neutral-800">{description}</p>
+          </li>
         ))
       }
     </ol>

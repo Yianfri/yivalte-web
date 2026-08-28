@@ -1,46 +1,37 @@
 ---
 const navigationItems = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Servicio", href: "#que-hacemos" },
-  { label: "Catálogo", href: "#catalogo" },
-  { label: "Cotizador", href: "#cotizador" },
-  { label: "Cómo pedir", href: "#como-pedir" },
-  { label: "Archivos", href: "#requisitos-diseno" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Productos", href: "#catalogo" },
+  { label: "Cómo funciona", href: "#como-pedir" },
+  { label: "Cotizar", href: "#cotizador" },
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-black/10 bg-[#f4f1e9]/95 backdrop-blur">
   <nav
-    class="mx-auto flex max-w-6xl flex-col gap-5 px-6 py-4 lg:flex-row lg:items-center lg:justify-between"
+    class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-4 sm:px-8"
     aria-label="Navegación principal"
   >
-    <a class="flex items-center gap-3" href="#inicio" aria-label="Yivalte inicio">
-      <!-- Reemplazar este bloque por una imagen cuando esté listo el logo final. -->
-      <span
-        class="grid h-10 w-10 place-items-center rounded-md bg-neutral-950 text-sm font-semibold text-white"
-        aria-hidden="true"
-      >
-        Y
-      </span>
-      <span class="text-lg font-semibold tracking-normal text-neutral-950">
-        Yivalte
-      </span>
+    <a class="text-xl font-black tracking-[-0.06em] text-neutral-950" href="#inicio">
+      YIVALTE<span class="text-[#ef4b32]">.</span>
     </a>
 
-    <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm lg:justify-end">
+    <ul class="hidden items-center gap-7 text-sm font-medium md:flex">
       {
         navigationItems.map((item) => (
           <li>
-            <a
-              class="rounded-sm text-neutral-700 transition-colors hover:text-neutral-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-4"
-              href={item.href}
-            >
+            <a class="transition-colors hover:text-[#ef4b32]" href={item.href}>
               {item.label}
             </a>
           </li>
         ))
       }
     </ul>
+
+    <a
+      class="inline-flex min-h-10 items-center justify-center bg-neutral-950 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-[#ef4b32]"
+      href="#cotizador"
+    >
+      Cuéntanos tu idea
+    </a>
   </nav>
 </header>

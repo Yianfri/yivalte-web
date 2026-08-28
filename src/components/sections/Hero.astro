@@ -1,135 +1,46 @@
----
-const confidenceItems = [
-  {
-    label: "Cotización personalizada",
-    detail: "Por prenda, tamaño, ubicación y cantidad.",
-  },
-  {
-    label: "Revisión de archivo",
-    detail: "Miramos resolución, fondo y escala antes de producir.",
-  },
-  {
-    label: "Coordinación directa",
-    detail: "Preparado para atender por WhatsApp o Instagram.",
-  },
-];
-
-const orderDetails = [
-  "Prenda o soporte textil",
-  "Ubicación del estampado",
-  "Archivo, idea o referencia",
-];
----
-
-<section
-  id="inicio"
-  class="relative overflow-hidden border-b border-neutral-200 bg-white"
-  aria-labelledby="inicio-title"
->
-  <div class="absolute inset-x-0 top-0 h-24 bg-neutral-950" aria-hidden="true"></div>
-
-  <div class="relative mx-auto max-w-6xl px-6 py-8 lg:py-12">
-    <div
-      class="grid gap-6 rounded-lg border border-neutral-200 bg-neutral-50 p-5 shadow-xl shadow-neutral-950/10 lg:grid-cols-[1.05fr_0.8fr] lg:items-stretch"
-    >
-      <div class="flex flex-col justify-between rounded-lg bg-white p-6 sm:p-8">
-        <div class="max-w-3xl space-y-5">
-          <p class="text-sm font-semibold uppercase tracking-normal text-neutral-500">
-            Yivalte · estampados personalizados DTF
-          </p>
-          <h1
-            id="inicio-title"
-            class="text-4xl font-semibold tracking-normal text-neutral-950 sm:text-5xl"
-          >
-            Estampados DTF a medida.
-          </h1>
-          <p class="max-w-2xl text-base leading-7 text-neutral-700">
-            Personaliza poleras, polerones, tote bags y otros textiles con una
-            cotización preparada según tu diseño, prenda, ubicación y cantidad.
-          </p>
-        </div>
-
-        <div class="mt-8 space-y-6">
-          <div class="flex flex-col gap-3 sm:flex-row">
-            <a
-              class="inline-flex min-h-11 items-center justify-center rounded-md bg-neutral-950 px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
-              href="#cotizador"
-            >
-              Cotizar estampado
-            </a>
-            <a
-              class="inline-flex min-h-11 items-center justify-center rounded-md border border-neutral-300 px-5 py-3 text-center text-sm font-semibold text-neutral-900 transition-colors hover:border-neutral-950 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
-              href="#catalogo"
-            >
-              Ver catálogo
-            </a>
-          </div>
-
-          <dl class="grid gap-3 sm:grid-cols-3">
-            {
-              confidenceItems.map((item) => (
-                <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-3">
-                  <dt class="text-sm font-semibold text-neutral-950">
-                    {item.label}
-                  </dt>
-                  <dd class="mt-1 text-xs leading-5 text-neutral-600">
-                    {item.detail}
-                  </dd>
-                </div>
-              ))
-            }
-          </dl>
-        </div>
-      </div>
-
-      <aside
-        class="relative overflow-hidden rounded-lg bg-neutral-950 p-5 text-white"
-        aria-label="Mockup referencial de pedido DTF"
+<section id="inicio" class="overflow-hidden bg-[#f4f1e9]" aria-labelledby="inicio-title">
+  <div class="mx-auto grid max-w-7xl lg:min-h-[42rem] lg:grid-cols-[1.05fr_0.95fr]">
+    <div class="flex flex-col justify-center px-5 py-20 sm:px-8 lg:py-24">
+      <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#ef4b32]">
+        Estampados DTF personalizados
+      </p>
+      <h1
+        id="inicio-title"
+        class="mt-6 max-w-3xl text-[clamp(4rem,9vw,7.8rem)] font-black leading-[0.78] tracking-[-0.085em] text-neutral-950"
       >
-        <div class="flex items-center justify-between gap-4">
-          <div>
-            <p class="text-sm font-semibold text-white">Pedido en preparación</p>
-            <p class="mt-1 text-xs leading-5 text-neutral-400">
-              Bloque visual referencial, no trabajos realizados.
-            </p>
-          </div>
-          <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-neutral-950">
-            DTF
-          </span>
-        </div>
+        Hazlo<br />tuyo.
+      </h1>
+      <p class="mt-8 max-w-xl text-lg leading-7 text-neutral-700">
+        Estampamos poleras, polerones y textiles para tu marca, evento o idea.
+        Tú traes el diseño; nosotros te ayudamos a aterrizarlo.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a
+          class="inline-flex min-h-12 items-center justify-center bg-[#ef4b32] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-neutral-950"
+          href="#cotizador"
+        >
+          Cotizar un estampado
+        </a>
+        <a
+          class="inline-flex min-h-12 items-center justify-center border-b-2 border-neutral-950 px-2 py-3 text-sm font-bold text-neutral-950 hover:text-[#ef4b32]"
+          href="#catalogo"
+        >
+          Ver opciones ↓
+        </a>
+      </div>
+    </div>
 
-        <div class="mt-7 grid gap-4">
-          <div class="relative min-h-64 overflow-hidden rounded-lg bg-white p-5 text-neutral-950">
-            <div class="absolute left-5 top-5 h-3 w-24 rounded-full bg-neutral-200"></div>
-            <div class="absolute right-5 top-5 h-3 w-16 rounded-full bg-neutral-950"></div>
-
-            <div class="relative mx-auto mt-6 h-48 max-w-[16rem]" aria-hidden="true">
-              <span class="absolute left-3 top-14 h-20 w-16 -rotate-12 rounded-md border border-neutral-300 bg-neutral-100"></span>
-              <span class="absolute right-3 top-14 h-20 w-16 rotate-12 rounded-md border border-neutral-300 bg-neutral-100"></span>
-              <span class="absolute left-1/2 top-5 z-10 h-40 w-32 -translate-x-1/2 rounded-lg border border-neutral-300 bg-neutral-50 shadow-lg shadow-neutral-950/10"></span>
-              <span class="absolute left-1/2 top-5 z-20 h-9 w-16 -translate-x-1/2 rounded-b-full border-b border-neutral-300 bg-white"></span>
-              <span class="absolute left-1/2 top-20 z-20 grid h-16 w-16 -translate-x-1/2 place-items-center rounded-md bg-neutral-950 text-2xl font-semibold text-white">
-                Y
-              </span>
-              <span class="absolute bottom-7 left-1/2 z-20 h-2 w-24 -translate-x-1/2 rounded-full bg-cyan-300"></span>
-              <span class="absolute bottom-3 left-1/2 z-20 h-2 w-16 -translate-x-1/2 rounded-full bg-neutral-300"></span>
-            </div>
-          </div>
-
-          <div class="grid gap-3 sm:grid-cols-3">
-            {
-              orderDetails.map((detail) => (
-                <div class="rounded-lg border border-white/10 bg-white/[0.08] p-4">
-                  <p class="text-xs font-semibold text-neutral-400">Dato base</p>
-                  <p class="mt-2 text-sm font-medium leading-5 text-white">
-                    {detail}
-                  </p>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </aside>
+    <div class="relative min-h-[28rem] overflow-hidden bg-neutral-950 lg:min-h-full" aria-hidden="true">
+      <div class="absolute inset-0 grid place-items-center">
+        <p class="rotate-[-8deg] text-[clamp(6rem,17vw,13rem)] font-black leading-none tracking-[-0.1em] text-[#f4f1e9]">
+          TUYO
+        </p>
+      </div>
+      <div class="absolute -left-12 top-[17%] h-20 w-[75%] rotate-[-8deg] bg-[#ef4b32]"></div>
+      <div class="absolute -right-12 bottom-[20%] h-16 w-[70%] rotate-[-8deg] bg-[#9fd8c5]"></div>
+      <p class="absolute bottom-7 right-7 max-w-48 text-right text-xs font-bold uppercase leading-5 tracking-[0.18em] text-white">
+        Una prenda en blanco es un buen comienzo
+      </p>
     </div>
   </div>
 </section>
