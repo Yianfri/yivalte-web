@@ -1,7 +1,7 @@
 export const contactConfig = {
   whatsappNumber: "",
-  email: "",
-  instagramUrl: "",
+  email: "yivalte.store@gmail.com",
+  instagramUrl: "https://www.instagram.com/yivalte.store/",
 } as const;
 
 export const whatsappQuoteMessage = `Hola, quiero cotizar un estampado personalizado DTF.

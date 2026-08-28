@@ -1,9 +1,43 @@
+---
+import { contactConfig } from "../data/contact";
+---
+
 <footer class="bg-neutral-950 text-white">
-  <div class="mx-auto flex max-w-7xl flex-col gap-7 px-5 py-10 sm:flex-row sm:items-end sm:justify-between sm:px-8">
+  <div class="mx-auto grid max-w-7xl gap-9 px-5 py-10 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:px-8">
+    <img
+      class="h-20 w-20 rounded-full"
+      src="/brand/yivalte-logo-circular.png"
+      alt="Sello Yivalte Collection"
+      width="512"
+      height="512"
+      loading="lazy"
+    />
+
     <div>
-      <p class="text-2xl font-black tracking-[-0.06em]">YIVALTE<span class="text-[#ef4b32]">.</span></p>
-      <p class="mt-2 text-sm text-neutral-400">Estampados DTF hechos a tu medida.</p>
+      <img
+        class="h-12 w-auto"
+        src="/brand/yivalte-wordmark.svg"
+        alt="Yivalte"
+        width="896"
+        height="405"
+        loading="lazy"
+      />
+      <p class="mt-1 text-sm text-neutral-400">Estampados DTF hechos a tu medida.</p>
+      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
+        <a class="hover:text-[#ef4b32]" href={`mailto:${contactConfig.email}`}>
+          {contactConfig.email}
+        </a>
+        <a
+          class="hover:text-[#ef4b32]"
+          href={contactConfig.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram @yivalte.store
+        </a>
+      </div>
     </div>
+
     <p class="max-w-md text-sm leading-6 text-neutral-400 sm:text-right">
       Envío gratis desde 4 unidades. Santiago $2.990 · Regiones $4.990.<br />
       Valores referenciales; se confirman con tu pedido.
