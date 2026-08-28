@@ -5,274 +5,161 @@ const productOptions = [
   "Polera manga corta",
   "Polera manga larga",
   "Polerón",
-  "Polera niños",
+  "Polera infantil",
   "Tote bag",
-  "Otros textiles",
+  "Otro textil",
 ];
 
-const locationOptions = [
-  "Pecho",
-  "Espalda",
-  "Manga",
-  "Bolsillo",
-  "Otra ubicación",
-  "Por confirmar",
-];
-
+const locationOptions = ["Pecho", "Espalda", "Manga", "Bolsillo", "Otra", "Por confirmar"];
 const sizeOptions = ["Por confirmar", "S", "M", "L", "XL", "XXL", "Infantil"];
-
-const printSizeOptions = [
-  "Por confirmar",
-  "Pequeño",
-  "Mediano",
-  "Grande",
-  "Cobertura amplia",
-];
-
-const designOptions = [
-  "Tengo el diseño listo",
-  "Tengo una referencia o idea",
-  "Necesito orientación",
-];
+const printSizeOptions = ["Por confirmar", "Pequeño", "Mediano", "Grande", "Cobertura amplia"];
+const designOptions = ["Tengo el diseño listo", "Tengo una referencia", "Necesito orientación"];
 
 const inputClasses =
-  "mt-2 min-h-11 w-full rounded-md border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-950 outline-none transition focus:border-neutral-950 focus:ring-2 focus:ring-neutral-950/10";
+  "mt-2 min-h-11 w-full border-0 border-b border-neutral-400 bg-transparent px-0 py-2.5 text-sm text-neutral-950 outline-none transition placeholder:text-neutral-400 focus:border-neutral-950 focus:ring-0";
 ---
 
-<section
-  id="cotizador"
-  class="border-t border-neutral-200 bg-neutral-50"
-  aria-labelledby="cotizador-title"
->
-  <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-    <div class="max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-normal text-neutral-500">
-        Cotizador
-      </p>
+<section id="cotizador" class="bg-[#f4f1e9]" aria-labelledby="cotizador-title">
+  <div class="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[0.68fr_1.32fr] lg:gap-24 lg:py-28">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#ef4b32]">Cotizador</p>
       <h2
         id="cotizador-title"
-        class="mt-4 text-3xl font-semibold tracking-normal text-neutral-950 sm:text-4xl"
+        class="mt-5 text-5xl font-black leading-[0.88] tracking-[-0.065em] text-neutral-950 sm:text-6xl"
       >
-        Prepara tu solicitud en menos de un minuto.
+        Hablemos de tu idea.
       </h2>
-      <p class="mt-4 text-base leading-7 text-neutral-700">
-        Completa los datos base del pedido y te entregaremos un mensaje ordenado
-        para enviar por el canal disponible. No calcula precios automáticamente:
-        la cotización depende del archivo, la prenda y la cantidad.
+      <p class="mt-6 max-w-md text-base leading-7 text-neutral-600">
+        Déjanos lo básico y generamos un mensaje listo para enviar. El precio final
+        se confirma después de revisar el diseño.
       </p>
+
+      <div class="mt-10 border-t border-neutral-400 text-sm">
+        <details class="border-b border-neutral-400 py-4">
+          <summary class="cursor-pointer font-bold">¿Qué archivo envío?</summary>
+          <p class="mt-3 max-w-md leading-6 text-neutral-600">
+            Idealmente PNG con fondo transparente y la mejor calidad disponible.
+            Si solo tienes una referencia, también podemos partir por ahí.
+          </p>
+        </details>
+        <details class="border-b border-neutral-400 py-4">
+          <summary class="cursor-pointer font-bold">¿No sabes la talla o medida?</summary>
+          <p class="mt-3 max-w-md leading-6 text-neutral-600">
+            Marca “por confirmar”. Antes de producir revisamos contigo talla,
+            ubicación y tamaño del estampado.
+          </p>
+        </details>
+      </div>
     </div>
 
-    <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_0.86fr] lg:items-start">
-      <form
-        id="cotizador-form"
-        class="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm shadow-neutral-950/5 sm:p-8"
-      >
-        <div class="grid gap-5 sm:grid-cols-2">
-          <label class="text-sm font-semibold text-neutral-950">
+    <div>
+      <form id="cotizador-form">
+        <div class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          <label class="text-sm font-bold">
+            Tu nombre
+            <input name="clientName" class={inputClasses} type="text" autocomplete="name" placeholder="Nombre" required />
+          </label>
+
+          <label class="text-sm font-bold">
+            WhatsApp o correo
+            <input name="clientContact" class={inputClasses} type="text" placeholder="Cómo te respondemos" required />
+          </label>
+
+          <label class="text-sm font-bold">
             Producto
-            <select id="quote-product" name="product" class={inputClasses} required>
-              {
-                productOptions.map((option) => (
-                  <option value={option}>{option}</option>
-                ))
-              }
+            <select name="product" class={inputClasses} required>
+              {productOptions.map((option) => <option value={option}>{option}</option>)}
             </select>
           </label>
 
-          <label class="text-sm font-semibold text-neutral-950">
-            Cantidad aproximada
-            <input
-              id="quote-quantity"
-              name="quantity"
-              class={inputClasses}
-              type="number"
-              min="1"
-              step="1"
-              value="1"
-              required
-            />
+          <label class="text-sm font-bold">
+            Cantidad
+            <input name="quantity" class={inputClasses} type="number" min="1" step="1" value="1" required />
           </label>
 
-          <label class="text-sm font-semibold text-neutral-950">
+          <label class="text-sm font-bold">
             Talla
-            <select id="quote-size" name="size" class={inputClasses} required>
-              {
-                sizeOptions.map((option) => (
-                  <option value={option}>{option}</option>
-                ))
-              }
+            <select name="size" class={inputClasses} required>
+              {sizeOptions.map((option) => <option value={option}>{option}</option>)}
             </select>
           </label>
 
-          <label class="text-sm font-semibold text-neutral-950">
+          <label class="text-sm font-bold">
             Color
-            <input
-              id="quote-color"
-              name="color"
+            <input name="color" class={inputClasses} type="text" placeholder="Ej: negro" />
+          </label>
+
+          <label class="text-sm font-bold">
+            Ubicación
+            <select name="location" class={inputClasses} required>
+              {locationOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </label>
+
+          <label class="text-sm font-bold">
+            Tamaño del estampado
+            <select name="printSize" class={inputClasses} required>
+              {printSizeOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </label>
+
+          <label class="text-sm font-bold sm:col-span-2">
+            ¿En qué va tu diseño?
+            <select name="design" class={inputClasses} required>
+              {designOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </label>
+
+          <label class="text-sm font-bold sm:col-span-2">
+            Algo más que debamos saber
+            <textarea
+              name="notes"
               class={inputClasses}
-              type="text"
-              placeholder="Ej: negro, blanco o por confirmar"
-            />
-          </label>
-
-          <label class="text-sm font-semibold text-neutral-950">
-            Ubicación del estampado
-            <select id="quote-location" name="location" class={inputClasses} required>
-              {
-                locationOptions.map((option) => (
-                  <option value={option}>{option}</option>
-                ))
-              }
-            </select>
-          </label>
-
-          <label class="text-sm font-semibold text-neutral-950">
-            Tamaño aproximado
-            <select id="quote-print-size" name="printSize" class={inputClasses} required>
-              {
-                printSizeOptions.map((option) => (
-                  <option value={option}>{option}</option>
-                ))
-              }
-            </select>
+              rows="3"
+              placeholder="Fecha, varias tallas, otra prenda…"
+            ></textarea>
           </label>
         </div>
 
-        <fieldset class="mt-6 border-t border-neutral-200 pt-6">
-          <legend class="text-base font-semibold text-neutral-950">Tus datos</legend>
-          <p class="mt-1 text-sm leading-6 text-neutral-600">
-            Los usaremos solo para responder esta solicitud de cotización.
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <button
+            class="inline-flex min-h-12 items-center justify-center bg-neutral-950 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#ef4b32]"
+            type="submit"
+          >
+            Preparar mensaje
+          </button>
+          <p id="quote-status" class="text-sm text-neutral-500" role="status" aria-live="polite">
+            No calcula ni cobra automáticamente.
           </p>
-
-          <div class="mt-4 grid gap-5 sm:grid-cols-2">
-            <label class="text-sm font-semibold text-neutral-950">
-              Nombre
-              <input
-                id="quote-client-name"
-                name="clientName"
-                class={inputClasses}
-                type="text"
-                autocomplete="name"
-                placeholder="Tu nombre"
-                required
-              />
-            </label>
-
-            <label class="text-sm font-semibold text-neutral-950">
-              Contacto
-              <input
-                id="quote-client-contact"
-                name="clientContact"
-                class={inputClasses}
-                type="text"
-                placeholder="WhatsApp o correo"
-                required
-              />
-            </label>
-          </div>
-
-          <label class="mt-5 block text-sm font-semibold text-neutral-950">
-            Canal preferido
-            <select id="quote-channel" name="channel" class={inputClasses} required>
-              <option value="WhatsApp">WhatsApp</option>
-              <option value="Correo">Correo</option>
-              <option value="Por confirmar">Por confirmar</option>
-            </select>
-          </label>
-        </fieldset>
-
-        <label class="mt-5 block text-sm font-semibold text-neutral-950">
-          Estado del diseño
-          <select id="quote-design" name="design" class={inputClasses} required>
-            {
-              designOptions.map((option) => (
-                <option value={option}>{option}</option>
-              ))
-            }
-          </select>
-        </label>
-
-        <label class="mt-5 block text-sm font-semibold text-neutral-950">
-          Comentarios adicionales
-          <textarea
-            id="quote-notes"
-            name="notes"
-            class={inputClasses}
-            rows="4"
-            placeholder="Cuéntanos si necesitas una fecha, varias prendas o una ubicación distinta."
-          ></textarea>
-        </label>
-
-        <button
-          class="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-md bg-neutral-950 px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 sm:w-auto"
-          type="submit"
-        >
-          Generar mensaje
-        </button>
+        </div>
       </form>
 
-      <aside
-        class="rounded-lg bg-neutral-950 p-6 text-white shadow-xl shadow-neutral-950/10 sm:p-8"
-        aria-labelledby="quote-output-title"
-      >
-        <p class="text-sm font-semibold uppercase tracking-normal text-neutral-400">
-          Resultado
-        </p>
-        <h3 id="quote-output-title" class="mt-3 text-2xl font-semibold">
-          Tu mensaje está aquí.
-        </h3>
-        <p class="mt-3 text-sm leading-6 text-neutral-300">
-          Genera el resumen, revísalo y luego cópialo o envíalo cuando exista un
-          canal configurado.
-        </p>
-
+      <div id="quote-result" class="mt-10 hidden border-t-2 border-neutral-950 pt-7">
+        <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ef4b32]">Mensaje listo</p>
+            <h3 class="mt-2 text-2xl font-black tracking-tight">Revísalo y envíalo.</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="copy-quote" class="bg-neutral-950 px-4 py-2 text-sm font-bold text-white" type="button">
+              Copiar
+            </button>
+            <a id="whatsapp-quote" class="hidden bg-[#ef4b32] px-4 py-2 text-sm font-bold text-white" href="#" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+            <a id="email-quote" class="hidden border border-neutral-950 px-4 py-2 text-sm font-bold" href="#">
+              Correo
+            </a>
+          </div>
+        </div>
         <textarea
           id="quote-output"
-          class="mt-6 min-h-80 w-full resize-y rounded-md border border-white/10 bg-white/[0.08] p-4 text-sm leading-6 text-white outline-none placeholder:text-neutral-500 focus:border-white/40 focus:ring-2 focus:ring-white/10"
-          rows="15"
+          class="mt-5 min-h-64 w-full resize-y border border-neutral-400 bg-white p-4 text-sm leading-6 outline-none focus:border-neutral-950"
+          rows="12"
           readonly
-          placeholder="Aquí aparecerá el mensaje de cotización."
           aria-label="Mensaje de cotización generado"
         ></textarea>
-
-        <div class="mt-4 grid gap-3 sm:grid-cols-2">
-          <button
-            id="copy-quote"
-            class="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-5 py-3 text-center text-sm font-semibold text-neutral-950 transition-colors hover:bg-neutral-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 disabled:cursor-not-allowed disabled:bg-white/20 disabled:text-neutral-500"
-            type="button"
-            disabled
-          >
-            Copiar mensaje
-          </button>
-
-          <a
-            id="whatsapp-quote"
-            class="hidden min-h-11 items-center justify-center rounded-md border border-white/20 px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Enviar por WhatsApp
-          </a>
-
-          <a
-            id="email-quote"
-            class="hidden min-h-11 items-center justify-center rounded-md border border-white/20 px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
-            href="#"
-          >
-            Enviar por correo
-          </a>
-        </div>
-
-        <p
-          id="quote-status"
-          class="mt-4 min-h-6 text-sm leading-6 text-neutral-400"
-          role="status"
-          aria-live="polite"
-        >
-          Completa el formulario para preparar tu solicitud.
-        </p>
-      </aside>
+      </div>
     </div>
   </div>
 </section>
@@ -284,110 +171,78 @@ const inputClasses =
   }}
 >
   const form = document.querySelector("#cotizador-form");
+  const result = document.querySelector("#quote-result");
   const output = document.querySelector("#quote-output");
   const copyButton = document.querySelector("#copy-quote");
   const whatsappLink = document.querySelector("#whatsapp-quote");
   const emailLink = document.querySelector("#email-quote");
   const status = document.querySelector("#quote-status");
 
-  if (form && output && copyButton && whatsappLink && emailLink && status) {
-    const getValue = (id) => {
-      const field = form.elements.namedItem(id);
+  if (form && result && output && copyButton && whatsappLink && emailLink && status) {
+    const getValue = (name) => {
+      const field = form.elements.namedItem(name);
       return field && "value" in field ? String(field.value).trim() : "";
     };
 
-    const buildMessage = () => {
-      const quantity = getValue("quantity") || "Por confirmar";
-      const color = getValue("color") || "Por confirmar";
-      const notes = getValue("notes") || "Sin comentarios adicionales";
-
-      return [
-        "Hola, quiero cotizar un estampado personalizado DTF.",
-        "",
-        "Nombre: " + getValue("clientName"),
-        "Contacto: " + getValue("clientContact"),
-        "Canal preferido: " + getValue("channel"),
-        "",
-        "Producto: " + getValue("product"),
-        "Cantidad aproximada: " + quantity,
-        "Talla: " + getValue("size"),
-        "Color: " + color,
-        "Ubicación del estampado: " + getValue("location"),
-        "Tamaño aproximado: " + getValue("printSize"),
-        "Estado del diseño: " + getValue("design"),
-        "Comentarios: " + notes,
-      ].join("\n");
-    };
+    const buildMessage = () => [
+      "Hola, quiero cotizar un estampado DTF.",
+      "",
+      "Nombre: " + getValue("clientName"),
+      "Contacto: " + getValue("clientContact"),
+      "Producto: " + getValue("product"),
+      "Cantidad: " + getValue("quantity"),
+      "Talla: " + getValue("size"),
+      "Color: " + (getValue("color") || "Por confirmar"),
+      "Ubicación: " + getValue("location"),
+      "Tamaño del estampado: " + getValue("printSize"),
+      "Diseño: " + getValue("design"),
+      "Comentarios: " + (getValue("notes") || "Sin comentarios adicionales"),
+    ].join("\n");
 
     const cleanWhatsapp = configuredWhatsapp.replace(/\D/g, "");
-
     const productField = form.elements.namedItem("product");
-    const productLinks = document.querySelectorAll(
-      "[data-quote-product]"
-    );
 
-    productLinks.forEach((link) => {
+    document.querySelectorAll("[data-quote-product]").forEach((link) => {
       link.addEventListener("click", () => {
         const product = link.dataset.quoteProduct;
-
         if (product && productField) {
           productField.value = product;
-          status.textContent =
-            "Producto seleccionado: " + product + ". Completa el resto del formulario.";
+          result.classList.add("hidden");
+          status.textContent = "Producto seleccionado. Completa tus datos para preparar el mensaje.";
         }
       });
     });
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-
-      if (!form.reportValidity()) {
-        return;
-      }
+      if (!form.reportValidity()) return;
 
       const message = buildMessage();
       output.value = message;
-      copyButton.disabled = false;
+      result.classList.remove("hidden");
+      status.textContent = "Listo. Revisa el mensaje antes de enviarlo.";
 
       if (cleanWhatsapp) {
-        whatsappLink.href =
-          "https://wa.me/" + cleanWhatsapp + "?text=" + encodeURIComponent(message);
+        whatsappLink.href = "https://wa.me/" + cleanWhatsapp + "?text=" + encodeURIComponent(message);
         whatsappLink.classList.remove("hidden");
-      } else {
-        whatsappLink.classList.add("hidden");
       }
 
       if (configuredEmail) {
-        emailLink.href =
-          "mailto:" +
-          configuredEmail +
-          "?subject=" +
-          encodeURIComponent("Cotización de estampado DTF") +
-          "&body=" +
-          encodeURIComponent(message);
+        emailLink.href = "mailto:" + configuredEmail + "?subject=" + encodeURIComponent("Cotización DTF") + "&body=" + encodeURIComponent(message);
         emailLink.classList.remove("hidden");
-      } else {
-        emailLink.classList.add("hidden");
       }
 
-      status.textContent =
-        cleanWhatsapp || configuredEmail
-          ? "Mensaje listo para revisar y enviar."
-          : "Mensaje listo. Configura WhatsApp o correo en src/data/contact.ts para enviarlo.";
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
     copyButton.addEventListener("click", async () => {
-      if (!output.value) {
-        return;
-      }
-
       try {
         await navigator.clipboard.writeText(output.value);
-        status.textContent = "Mensaje copiado al portapapeles.";
+        status.textContent = "Mensaje copiado.";
       } catch {
         output.focus();
         output.select();
-        status.textContent = "Seleccioné el mensaje para que puedas copiarlo manualmente.";
+        status.textContent = "Mensaje seleccionado para copiar manualmente.";
       }
     });
   }
