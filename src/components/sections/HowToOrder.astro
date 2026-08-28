@@ -1,4 +1,6 @@
 ---
+import { contactConfig } from "../../data/contact";
+
 const steps = [
   ["01", "Cuéntanos", "Prenda, cantidad y dónde quieres el estampado."],
   ["02", "Lo revisamos", "Miramos tu archivo y aclaramos lo que falte."],
@@ -28,5 +30,17 @@ const steps = [
         ))
       }
     </ol>
+
+    <div class="flex flex-col gap-3 border-t border-neutral-950/30 pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-sm font-bold text-neutral-900">¿Quieres ver resultados reales? Las fotos cuentan mejor la historia.</p>
+      <a
+        class="inline-flex w-fit items-center border-b border-neutral-950 pb-1 text-sm font-black hover:text-[#ef4b32]"
+        href={contactConfig.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver trabajos en Instagram →
+      </a>
+    </div>
   </div>
 </section>
