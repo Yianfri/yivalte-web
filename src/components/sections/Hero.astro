@@ -1,5 +1,9 @@
+---
+import DesignPreview from "../DesignPreview.astro";
+---
+
 <section id="inicio" class="overflow-hidden bg-[#f4f1e9]" aria-labelledby="inicio-title">
-  <div class="mx-auto grid max-w-7xl lg:min-h-[42rem] lg:grid-cols-[1.05fr_0.95fr]">
+  <div class="mx-auto grid max-w-7xl lg:min-h-[46rem] lg:grid-cols-[0.95fr_1.05fr]">
     <div class="flex flex-col justify-center px-5 py-20 sm:px-8 lg:py-24">
       <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#ef4b32]">
         Estampados DTF personalizados
@@ -30,21 +34,6 @@
       </div>
     </div>
 
-    <div class="relative min-h-[28rem] overflow-hidden bg-neutral-950 lg:min-h-full" aria-hidden="true">
-      <div class="absolute inset-0 z-10 grid place-items-center px-10">
-        <img
-          class="w-full max-w-[34rem] rotate-[-6deg]"
-          src="/brand/yivalte-wordmark.svg"
-          alt=""
-          width="896"
-          height="405"
-        />
-      </div>
-      <div class="absolute -left-12 top-[17%] h-20 w-[75%] rotate-[-8deg] bg-[#ef4b32]"></div>
-      <div class="absolute -right-12 bottom-[20%] h-16 w-[70%] rotate-[-8deg] bg-[#9fd8c5]"></div>
-      <p class="absolute bottom-7 right-7 max-w-48 text-right text-xs font-bold uppercase leading-5 tracking-[0.18em] text-white">
-        Una prenda en blanco es un buen comienzo
-      </p>
-    </div>
+    <DesignPreview />
   </div>
 </section>
